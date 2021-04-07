@@ -1,0 +1,134 @@
+---
+title: "Proyecto 3"
+author: "Rudik Rompich, Carlos Martínez"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+Instrucciones: Elabore un programa en $\mathrm{R}$ con la solución de los siguiente problema y cargue el script de $\mathrm{R}$ y un pantallazo de la ejecución en la tarea de Canvas.
+
+# Problema 1:
+
+Suponga que es una variable aleatoria que indica la cantidad de líquido despachado por una máquina embotelladora y está distribuida normalmente con $\sigma=1$ onza. Suponga que $\bar{Y}$ se calcula usando una muestra de tamaño $n$.
+
+## a) 
+
+Encontrar $\mathrm{P}(|\bar{Y}-\mu| \leq 0,3)$ para $n=9, n=16, n=25, n=36, n=49$ y $n=64$.\
+
+```{r}
+#Basándose en el ejercicio 7.2 y 7.3 del libro de texto
+media = 0.3
+desviacion = 1 
+muestra = c(9,16,25,36,49,64)
+
+for (val in muestra)
+{
+probabilidad = pnorm(media/(desviacion/sqrt(val)))-pnorm(-media/(desviacion/sqrt(val)))
+print(probabilidad)
+}
+```
+
+## b)
+
+¿Qué patrón observa entre los valores de $\mathrm{P}(|\bar{Y}-\mu| \leq 0,3)$ para diferentes valores de $\mathrm{n} ?$\
+
+Es un patrón creciente. A un $n$ mayor, una probabilidad mayor. También tiene lógica que la varianza de $\bar{Y}$ decrece con $n$.
+
+## c) 
+
+¿Estos resultados del inciso a son consistentes con el resultado obtenido en el ejemplo $7.3 ?$
+
+Sí, ya que el libro apunta a que únicamente es necesario tener una muestra de 42 para obtener una probabilidad de .95 y los datos anteriores muestran que sí se cumple.
+(Valor 25 puntos)
+
+# Problema 2
+
+Si $Z_{1}, Z_{2}, Z_{3}, Z_{4}, Z_{5}$ y $Z_{6}$ son una muestra aleatoria de una distribución normal estándar, determine $\mathrm{P}\left(\sum_{i=1}^{6} Z_{i}^{2} \leq 6\right)$ 
+```{r}
+b = 6
+gl = 6
+
+pchisq(b, gl, lower.tail = TRUE, log.p = FALSE)
+```
+(Valor 25 puntos)
+
+# Problema 3: 
+
+Suponga que $\mathrm{T}$ es una variable aleatoria con distribución t.
+
+
+
+## a) 
+
+Calcular el valor de $t_{0,10}$ (esto es, $\mathrm{P}\left(T>t_{0,10}\right)=0.10$ ) para distribuciones t con 5,30 , 60 y $120 \mathrm{gl}$.
+
+```{r}
+#con 5 gl
+qt(0.10,5, lower.tail = FALSE)
+
+#con 30 gl
+qt(0.10,30, lower.tail = FALSE)
+
+#con 60 gl
+qt(0.10,60, lower.tail = FALSE)
+
+#con 120 gl
+qt(0.10,120, lower.tail = FALSE)
+
+
+```
+
+
+## b) 
+
+Calcular el valor de $z_{0,10} .$ ¿Qué propiedad de la distribución t (cuando se compara con la distribución normal estándar) explica el hecho de que todos los valores obtenidos en el inciso $\mathrm{c}$ son mayores que $z_{0,10}$ ?
+
+```{r}
+qnorm(0.10, mean = 0, sd= 1, lower.tail = FALSE, log.p = FALSE)
+```
+
+En este caso, según la figura 7.3 del libro Estadística Matemática con Aplicaciones Wackerly, William y Richard, la distribución $t$ tiene áreas más grandes en los costados extremos que la distribución normal estándar. En otras palabras la densidad t tiene más masa de probabilidad que la distribución normal estándar. Por ello todos los valores obtenidos en a) superan a $z_{0.10}$. 
+
+## c) 
+
+¿Qué observa sobre los tamaños de los valores de $t_{0,10}$ para distribuciones con 5,30 , 60 y 120 gl? Cuando se hace grande los gl, $i$ a qué converge $t_{0,10} ?$ (Valor 25 puntos)
+
+Note que conforme los grados de libertan se hacen m?s grandes el valor de $t_{0.10}$ se comienza a parecer cada vez más a $z_{0.10}$. Concluimos que cuando los grados de libertad tienden a infinito el valor de $t_{0.10}$ converge a $z_{0.10}$
+
+# Problema 4 
+
+ Suponga que $Y$ tiene una distribución $\mathrm{F}$ con $v_{1}=4 \mathrm{gl}$ en el numerador $\mathrm{y}$ $v_{2}=6$ gl en el denominador.
+ 
+## a) 
+
+Encontrar $F_{0,025}$ (esto es, $\left.\mathrm{P}\left(F>F_{0,025}\right)=0.025\right)$ y $F_{0,975}$ (esto es, $\mathrm{P}\left(F>F_{0,975}\right)=0.975$ ).
+```{r}
+qf(0.025,4,6, lower.tail = FALSE)
+qf(0.975,4,6, lower.tail = FALSE)
+```
+
+## b) 
+
+Si U tiene una distribución $\mathrm{F}$ con $v_{1}=6 \mathrm{gl}$ en el numerador y $v_{2}=4$ en el denominador, encuentre $F_{0,025}$
+```{r}
+qf(0.025,6,4, lower.tail = FALSE)
+```
+
+
+## c) 
+¿ Cuál es la relación entre $F_{0,975}$ (4 gl en el numerador y 6 gl en el denominador) $y$ $F_{0,025}(6 \mathrm{gl}$ en el numerador y $4 \mathrm{gl}$ en el denominador $) ?$ (Valor 25 puntos)
+
+```{r}
+qf(0.975,4,6, lower.tail = FALSE)
+qf(0.025,6,4, lower.tail = FALSE)
+```
+Una posible relación podría en las colas. Ya que por lo general la cola derecha es la que se toma en cuenta, pero también es posible hallar el $F_\alpha$ con la cola izquierda; únicamente cambiando el valor crítido y colocando TRUE en el parámetro del comando. 
+```{r}
+qf(0.025,4,6, lower.tail = TRUE)
+qf(0.975,6,4, lower.tail = TRUE)
+```
+Sin embargo, también se detectó que: 
+$$\frac{1}{0.1087274}=9.197311 \quad \text{ y }\quad \frac{1}{9.197311} = 0.1087274$$
+Lo que implicaría que existe una relación entre recíprocos. Es decir, generalizando, la relación sería: 
+$$\frac{1}{F_{\alpha-1}}= F_{\alpha}$$
