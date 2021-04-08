@@ -1,0 +1,680 @@
+---
+title: "Proyecto 2"
+author: "Rudik Roberto Rompich - Carlos Martínez"
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+# Ejercicios
+A continuación se listan los comentarios de los códigos proporcionados. 
+
+## Ejercicio 1
+
+Se empieza declarando una lista de elementos.
+```{r}
+peso <- c(19,14,15,17,20,23,30,19,25) 
+```
+
+Estas dos líneas de código proporcionan una lista de valores booleanos. 
+1. Si los valores de la lista <20, entonces devuelve TRUE y si son >20 devuelve FALSE.
+2. Si los valores son <20 o >30 entonces es TRUE, de lo contrario FALSE.
+```{r}
+peso < 20 
+peso < 20 | peso > 25 
+```
+Se crea una lista con los elementos menores a 20.
+```{r}
+peso[peso < 20] 
+```
+Se crea una lista con los elementos menores a 20, siempre y cuando los elementos no sean 15. 
+```{r}
+peso[peso < 20 & peso != 15]
+```
+Se crea una lista que contiene 3 Strings del String original insertado, por cada rep().
+```{r}
+trat <- c(rep("A", 3), rep("B", 3), rep("C", 3)) 
+trat
+```
+Se le asigna los primeros tres elementos de la lista a  cada una de las "A"
+```{r}
+peso[trat == "A"] 
+```
+A cada valor de peso se le asigna un valor de A o B.
+```{r}
+peso[trat == "A" | trat == "B"] 
+```
+Con la función split() se separan 3 elementos de la lista peso con la lista trat. Lo que hace $A es seleccionar simplemente la lista con las variables A.
+```{r}
+split(peso, trat)$A
+```
+Se declara una variable x con un rango de 1 a 15. Luego con la función lenght() se calcula su longitud y posteriormente se imprime.
+```{r}
+x <- 1:15
+length(x) 
+x 
+```
+Se crea una matriz de 3x4
+```{r}
+y <- matrix(5, nrow = 3, ncol = 4)
+y
+```
+Con la función dim() se calcula las dimensiones de la matriz.
+```{r}
+dim(y)
+```
+Se verifica si la variable x es un vector. Da positivo.
+```{r}
+is.vector(x)
+```
+Se verifica si la variable y es un vector. Da falso.
+```{r}
+is.vector(y)
+```
+Se verifica si la variaable x es un array. Da falso.
+```{r}
+is.array(x)
+```
+
+Se creca una lista con rango de 1 a 5.
+```{r}
+x1 <- 1:5
+x1 
+```
+
+Se crea una lista con 5 elementos y se asigna el valor patata a la variable x3
+```{r}
+x2 <- c(1, 2, 3, 4, 5)
+x2 
+x3 <- "patata"
+```
+El tipo de elemento. Entero.
+```{r}
+typeof(x1)
+```
+El tipo de elemento. Double.
+
+```{r}
+typeof(x2)
+```
+El tipo de elemento. Character.
+
+```{r}
+typeof(x3) 
+```
+Es una generalidad para mostrar el "mode" de una variable. Númerico.
+```{r}
+mode(x)
+```
+
+Es una generalidad para mostrar el "mode" de una variable. Númerico.
+```{r}
+mode(y)
+```
+
+Es una generalidad para mostrar el "mode" de una variable. Character.
+```{r}
+mode(x3)
+```
+
+```{r}
+z <- c(TRUE, FALSE)
+```
+
+Se determina el tipo de datos de la lista z. Que es tipo lógico.
+```{r}
+typeof(z)
+```
+
+Se determina el modo de datos de la lista z. Que es tipo lógico.
+```{r}
+mode(z)
+```
+Se determinar los atributos de la variable y, en este caso, sus dimensiones.
+```{r}
+attributes(y)
+```
+
+Se declara una lista que tiene como elementos a un rango de 1 a 3 y un b con un elmento 5
+```{r}
+w <- list(a = 1:3, b = 5)
+```
+
+Arroja la variable a que contiene a los elementos de b
+```{r}
+w
+```
+Se crea un data frame de la variable y declarada anteriormente.
+```{r}
+y <- as.data.frame(y)
+y
+```
+
+Es un resumen de los atributos del data frame.
+```{r}
+attributes(y)
+```
+
+## Ejercicio 2 
+Se declara una lista de elementos. Primero a la x se le asigna una lista de 5 números y luego se cambia por una secuencia de 1 a 10. Para la variable se declara una lista de elementos de -5 a 3. 
+```{r}
+# Generación de secuencias
+x <- c(1, 2, 3, 4, 5)
+x <- 1 : 10
+y <- -5 : 3
+y <- -5 : 3
+```
+
+Una lista de (2,5)
+```{r}
+1 : 4 + 1
+```
+
+Una lista de [1,5]
+```{r}
+1 : (4 + 1)
+```
+
+
+Crea una secuencia de 2 a 18 en un intervalo de dos elementos. 
+```{r}
+x <- seq(from = 2, to = 18, by = 2)
+```
+
+Crea una secuencia de 2 a 18 que contiene 30 elementos. 
+```{r}
+x <- seq(from = 2, to = 18, length = 30)
+```
+
+Se crea una secuencia con el número de elementos de la variable anterior. Es decir, 30. 
+```{r}
+y <- seq(along = x)
+```
+
+Se crea una lista en un intervalo en función de una secuencia que va de 1 a 5, luego 7 a 10 y de -7 a 5 en un intervalo de 2 en 2. 
+```{r}
+z <- c(1 : 5, 7:10, seq(from=-7, to=5, by=2))
+```
+
+Se crea una lista de 1, de 5 elementos. 
+```{r}
+rep(1, 5) #repite el 1 cinco veces
+```
+
+Una lista de 1 a 3.
+```{r}
+x <- 1:3
+```
+
+Se crea una lista duplicada del x anterior. 
+```{r}
+rep(x, 2)
+```
+
+Se crea una variable con una lista de numeros que contiene 3 cincos. 
+```{r}
+y <- rep(5, 3)
+```
+
+Una lista que repite 1, 2 y 3 varias veces, según el y indicado.
+```{r}
+rep(x, y)
+```
+
+Se repiten los valores de 1 a 3, según el número de elemenots del rep(5,3)
+```{r}
+rep(1 : 3, rep(5, 3))
+```
+
+Según el x seleccinado, se repiten el número de elementos x, según la misma variable x.
+```{r}
+rep(x, x)
+```
+
+Se repite x, hasta que hayan 8 elementos. 
+```{r}
+rep(x, length = 8)
+```
+
+De una lista de elementos de 1 a 3, cada elemento se repite 3 veces.
+```{r}
+gl(3, 5) # es equivalente a rep(1:3, rep(5, 3))
+```
+
+De una lista de elementos de 1 a 4 se repiten hasta que se alcancen los 20 elementos.
+```{r}
+gl(4, 1, length = 20) # gl genera factores
+```
+De una lista de 3 elementos, se repiten 4 veces cada uno.
+
+```{r}
+gl(3, 4, label = c("Rubio", "Moreno", "Pelirrojo"))
+```
+
+
+## Ejercicio 3 
+Se crea una lista de elementos de 1 a 7.
+
+```{r}
+#Selección de los elementos de un vector
+x <- 1:7
+```
+
+Se selecciona el primer elemento.
+```{r}
+x[1]
+```
+
+Se selecciona el tercer elemento.
+```{r}
+x[3]
+```
+
+Se seleccionad los elementos 2 y 6 de la lista.
+```{r}
+x[c(2,6)]
+```
+
+Se seleccionan los elementos mayores a 4. 
+```{r}
+x[x > 4]
+```
+
+Es una operación booleana. Si cumple en el array retorna TRUE en el otro caso FALSE.
+```{r}
+x > 4
+```
+
+Se asignan los valores booleanos de x>4 a una variable y. 
+```{r}
+y <- x > 4
+```
+
+x en función de la variable y. 
+```{r}
+x[y]
+```
+
+Se excluyen los elementos 1 y 5. 
+```{r}
+x[-c(1, 5)]
+```
+
+Lista de elementos que contiene los tres valores indicados.
+```{r}
+y <- c(1, 2, 6)
+```
+
+x en función de y.
+```{r}
+x[y]
+```
+
+Se les asignan nombres a las variables de una lista x. 
+```{r}
+names(x) <- c("a", "b", "c", "d", "e", "manzana") # Cuidado con las dobles las comillas (tecla del 2)
+```
+
+Se eleccionan los elementos requeridos en x.
+```{r}
+x[c("a", "e", "manzana")]
+
+```
+
+## Ejercicio 4 
+
+Se declara una lista con los elementos siguientes:
+```{r}
+#ordenación de vectores
+x <- c(7, 4, 5, 9, 1)
+```
+
+Crea una lista de elementos distintos al anterior. 
+```{r}
+order(x)
+```
+Ordenada los elementos de menor a mayor. 
+
+```{r}
+sort(x)
+```
+
+Desordenada los elementos.
+```{r}
+rev(x)
+```
+
+Desordenada los elementos aleatoriamente. 
+```{r}
+rank(x)
+```
+
+En función de la lista order(x) se selecciona los elementos en x. 
+```{r}
+x[order(x)]
+```
+
+Se crea un lista y con varios elementos.
+```{r}
+y <- c(1, 5, 5, 5, 7, 7, 9, 9, 9, 9)
+```
+
+Se vuelve a imprimir una lista desordenada de los elementos de x. 
+```{r}
+rank(x)
+```
+
+Aquí el uso de rank() es evidente, ya que se les asigna una misma variable a cada mismo valor.
+```{r}
+rank(y)
+```
+
+El valor mínimo de x.
+```{r}
+min(x)
+```
+
+El uso de which.min no está claro, ya que esta función sirve para devolver el índice de valores booleanos y en este caso no se tiene una condición.
+```{r}
+which.min(x)
+```
+
+El which sirve para encontrar el indice en donde x== al valor minimo de x. 
+```{r}
+which(x == min(x))
+```
+Se vuelve a crear otra lista y.
+
+```{r}
+y <- c(1, 1, 2, 2, 3)
+```
+
+Se asignan nuevos valores en orden de los valores previos de y. 
+```{r}
+order(y)
+```
+## Ejercicio 5 
+Es una forma de crear una lista que agrupe una de las letras indicadas con un número de la secuencia 3 a 5, y el separador no es ninguno.
+```{r}
+#Vectore de caracteres
+paste1 <- paste(c("I", "J", "M"), 3:5, sep = "")
+```
+Es una forma de crear una lista que agrupe una de las letras indicadas con un número de la secuencia 3 a 5, y el separador es un punto.
+
+```{r}
+paste2 <- paste(c("I", "J", "M"), 3:5, sep = ".")
+```
+
+Es una forma de crear una lista que agrupe una de las palabras indicadas separadas por un espacio.
+```{r}
+unir1 <- paste(c("el", "sol", "brilla"), collapse =" ")
+```
+
+Se separan las letras indicadas por un guion.
+```{r}
+unir2 <- paste(c("el", "sol", "brilla"), collapse ="-")
+```
+
+Se crean 3 strings separadas en la lista. 
+```{r}
+unir3 <- paste(c("el", "sol", "brilla"))
+```
+
+Se crea una variable letras con las primeras 9 letras del abecedario.
+```{r}
+letras <- LETTERS[1:9]
+```
+
+Una lista de números del 7 al 15. 
+```{r}
+numeros <- 7:15
+```
+
+Se juntas las letras con los números de la variable números.
+```{r}
+unir4 <- paste(letras, numeros, sep ="")
+```
+
+Se le pide a substr() que se seleccionen los elementos en la posición 2 a 4.
+```{r}
+substr("abcdef", 2, 4)
+```
+
+Se hace una lista de letras pegadas, según el rango indicado. 
+```{r}
+x <- paste(LETTERS[1:7], collapse = "")
+```
+
+Se seleccionan los elementos 3 a 7 de la variable x. Entonces, se les asignan los valores xyz en la posición 3. 
+```{r}
+substr(x, 3, 7) <- c("xyz")
+x
+```
+
+Se crea una lista con 3 valores.
+```{r}
+x <- c(60, 90, 903)
+```
+
+Se le asigna a y el factor x y luego se imprimen X y Y. 
+```{r}
+y <- factor(x)
+x
+y
+```
+
+Solo sirve para hacer una conversión entre character a númerico.
+```{r}
+as.numeric(as.character(y))
+```
+
+
+Se le asigna el factor de los 3 elementos a una variable.
+
+```{r}
+factor1 <- factor(c("alto", "bajo", "medio"))
+```
+
+Se le asigna el factor de los 3 elementos a una variable, basándose en una variable levels con otro orden. 
+```{r}
+factor2 <- factor(c("alto", "bajo", "medio"), levels = c("bajo", "medio", "alto")) # cambia el orden de las etiquetas
+```
+
+## Ejercicio 6 
+Se declara una variable a de 1 a 24
+```{r}
+#arrays y matrices
+a <- 1:24
+```
+
+dim() se utiliza para visualizar las dimensions de a y el valor al que está igualado es una lista. a se divide en 3 listas. 
+```{r}
+dim(a) <- c(3,4,2)
+```
+
+Se dividen en una lista de 2 según la lista (4,5) los valores de 7
+```{r}
+arr1 <- array(7, dim = c(4,5))
+```
+
+Se crea una matriz de 5*4 que agrupa los valores indicados.
+```{r}
+mat1 <- matrix(10:29, nrow = 5)
+mat1
+```
+
+Se crea una matrix de 5*5 y se le dice que se ordenen por fila. 
+```{r}
+mat2 <- matrix(10:29, nrow = 5, byrow = TRUE)
+mat2
+```
+
+Se crea una lista de 10 a 29. 
+```{r}
+mat3 <- 10:29
+```
+
+Se crea un array con los elementos de mat3 en un array de 5*4
+```{r}
+dim(mat3) <- c(5, 4)
+mat3
+```
+
+El elemento (1,1) de la lista 1 del array a 
+```{r}
+a[1,1,1]
+```
+
+El elemento (1,1) de la lista 2 del array a 
+```{r}
+a[1,1,2]
+```
+
+El elemento (3,4) de la lista 2 del array a 
+```{r}
+a[3,4,2]
+```
+
+Se selecciona la fila 2 de los dos arrays del array a
+```{r}
+a[2, , ] # es un array de dimensi?n c(4,2)
+```
+
+Se selecciona la columna 3 de los dos arrays del array a.
+```{r}
+a
+a[,3 , ] # es un array de dimensi?n c(3,2)
+```
+
+Se selecciona la primera fila de mat3
+```{r}
+mat3
+mat3[1, ]
+```
+
+Se selecciona la 2 columna de mat3 
+```{r}
+mat3[, 2]
+```
+
+Se selecciona un elemtno específico en función de los valores ingresados en las dos listas.
+```{r}
+mat3[c(1, 3), c(2, 4)]
+```
+
+Se asigna una matriz con 4 elementos y dos filas.
+```{r}
+mat4 <- matrix(c(1, 3, 2, 4), nrow = 2)
+```
+Se imprime
+
+```{r}
+mat4
+```
+
+Se evaluan elementos de mat4 en mat3 y da como resultado dos elementos.
+```{r}
+mat3[mat4] # coordenadas matricialmente
+```
+
+Se crea una matrix con 4 elementos y parametros para columnas y filas.
+```{r}
+m1 <- matrix(1: 4, nr = 2, nc = 2)
+m1
+```
+
+Se crea una matrix con 4 elementos y parametros para columnas y filas.
+```{r}
+m2 <- matrix(6: 9, nr = 2, nc = 2)
+m2
+```
+
+
+rbind() juntó las matrices m1 y m2 en una sola, por filas.
+```{r}
+rbind(m1, m2) # rbind une matrices por filas
+```
+
+rbind() juntó las matrices m1 y m2 en una sola, por columnas.
+```{r}
+cbind(m1, m2) # cbind une matrices por columnas
+```
+
+diag() mostró la diagonal principal de la matriz.
+```{r}
+diag(m1) # diagonal principal de la matriz 
+```
+
+
+
+
+
+## Ejercicio 7 
+Se crea una lista con una secuencia de 1 a 4. 
+```{r}
+#Data frames y listas
+x <- 1:4
+```
+
+Se crea una variable.
+```{r}
+n <- 10
+```
+
+Se crea una lista con dos elementos.
+```{r}
+M <- c(10, 35)
+```
+
+Se crea otra variable con una lista de 2 a 5. 
+```{r}
+y <- 2:5
+```
+
+Se imprimen
+```{r}
+x
+n
+M
+y
+```
+Se crea un dataframe con los datos de x y n
+
+```{r}
+data.frame(x, n)
+```
+
+Se crea un dataframe con los datos de x y M
+```{r}
+data.frame(x, M)
+```
+Se crea un dataframe con los datos de x y y
+
+```{r}
+data.frame(x, y)
+```
+
+Se crean dos listas con los elementos de x y y. Independientemente.
+```{r}
+l1 <- list(x, y)
+l1
+```
+Se crea una lista independiente asignando un índice: A y B.
+```{r}
+l2 <- list(A = x, B = y)
+l2
+```
+
+Se intenta visualizar los nombres de las variables de la lista l1. Retorna null. 
+```{r}
+names(l1)
+```
+
+Se intenta visualizar los nombres de las variables de la lista l2. Retorna dos variables.
+```{r}
+names(l2)
+```
+
+
+

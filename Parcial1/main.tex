@@ -1,0 +1,429 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry}
+% Unfortunately, LaTeX has a hard time interpreting German Umlaute. The following two lines and packages should help. If it doesn't work for you please let me know.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% The following two packages - multirow and booktabs - are needed to create nice looking tables.
+\usepackage{multirow} % Multirow is for tables with multiple rows within one cell.
+\usepackage{booktabs} % For even nicer tables.
+% As we usually want to include some plots (.pdf files) we need a package for that.
+\usepackage{graphicx}
+\usepackage{tikz}
+% The default setting of LaTeX is to indent new paragraphs. This is useful for articles. But not really nice for homework problem sets. The following command sets the indent to 0.
+\usepackage[spanish]{babel}
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+% Package to place figures where you want them.
+\usepackage{float}
+% The fancyhdr package let's us create nice headers.
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{apalike}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{etoolbox}
+\usepackage{amsthm}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solución]}
+  {\end{proof}}
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\lhead{\footnotesize Parcial 1}
+\rhead{\footnotesize  Rompich}
+\cfoot{\footnotesize \thepage}
+
+
+
+\begin{document}
+    \thispagestyle{empty} % This command disables the header on the first page.
+
+    \begin{tabular}{p{15.5cm}} % This is a simple tabular environment to align your text nicely
+    \begin{tabbing}
+    Universidad del Valle de Guatemala 
+    \\
+    Departamento de Matemática\\ Licenciatura en Matemática Aplicada \\ Fecha de entrega: 24 de febrero de 2021  \\
+    Rudik R. Rompich   - Carné: 19857\\
+    \end{tabbing}
+    Estadística Matemática - Paulo Mejía \\
+    \hline % \hline produces horizontal lines.
+    \\
+    \end{tabular} % Our tabular environment ends here.
+    \vspace*{0.3cm} % Now we want to add some vertical space in between the line and our title.
+    \begin{center} % Everything within the center environment is centered.
+    {\Large \bf Parcial 1 
+} % <---- Don't forget to put in the right number
+        \vspace{2mm}
+    \end{center}
+    \vspace{0.4cm}
+
+
+Instrucciones: Resuelva los siguientes problema. Favor hacer la solución en latex y cargar el archivo latex y pdf en la tarea de Canvas.\newline\newline 
+
+En la argumentación de los siguientes problemas y demostraciones, se usaron teoremas y definiciones del libro de \cite{wackerly2014mathematical}
+
+\section{Problema} Sean $Y_{1}$ y $Y_{2}$ variables aleatorias con función densidad de probabilidad conjunta, definida por: $f\left(y_{1}, y_{2}\right)=\left\{\begin{array}{ll}k\left(1-y_{2}\right) & \text { si } 0 \leq y_{1} \leq y_{2} \leq 1 \\ 0 & \text { si en cualquier otro caso }\end{array}\right.$
+
+\begin{enumerate}
+
+    \item  Determine el valor de k para que sea una función densidad.
+    \begin{solution}
+Considerando la siguiente figura:
+    \begin{center}
+    
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da8574364299889676] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (283,154) -- (192.54,254.71) (257.24,188.66) -- (251.29,183.32)(228.51,220.65) -- (222.56,215.31)(199.77,252.64) -- (193.82,247.3) ;
+\draw [shift={(191.2,256.2)}, rotate = 311.93] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5078617357086751] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (283,154) -- (280.24,26.2) (278.07,111.1) -- (286.07,110.92)(277.15,68.11) -- (285.14,67.93) ;
+\draw [shift={(280.2,24.2)}, rotate = 448.76] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8830629089985604] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (283,154) -- (451.2,155.19) (326.03,150.3) -- (325.97,158.3)(369.03,150.61) -- (368.97,158.61)(412.02,150.91) -- (411.97,158.91) ;
+\draw [shift={(453.2,155.2)}, rotate = 180.4] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da43264954769937614] 
+\draw [color={rgb, 255:red, 65; green, 117; blue, 5 }  ,draw opacity=1 ]   (283,154) -- (371.93,262.65) (313.33,184.74) -- (307.14,189.81)(340.57,218.02) -- (334.38,223.08)(367.8,251.29) -- (361.61,256.36) ;
+\draw [shift={(373.2,264.2)}, rotate = 230.7] [color={rgb, 255:red, 65; green, 117; blue, 5 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8096413974817828] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (254.2,186.2) -- (309.2,187.2) ;
+%Straight Lines [id:da3173927771068342] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (309.2,187.2) -- (307.2,25.2) ;
+%Straight Lines [id:da38847517242817986] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (254.2,186.2) -- (251.2,27.2) ;
+%Straight Lines [id:da13822173292385753] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (283,154) -- (279.2,10.2) ;
+%Straight Lines [id:da4124086904537748] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (253.2,73.2) -- (308.2,74.2) ;
+%Straight Lines [id:da4658154439364701] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (253.2,74.2) -- (280.2,56.2) ;
+%Straight Lines [id:da1724480117718621] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (280.2,56.2) -- (308.2,74.2) ;
+%Straight Lines [id:da9037444215997563] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (254.2,186.2) -- (283,154) ;
+%Straight Lines [id:da09657178353142903] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (283,154) -- (309.2,187.2) ;
+%Shape: Parallelogram [id:dp9448720282493264] 
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=0.34 ][dash pattern={on 4.5pt off 4.5pt}] (295.11,82.1) -- (394.58,87.58) -- (337.31,231.11) -- (237.84,225.63) -- cycle ;
+
+% Text Node
+\draw (460,151.1) node [anchor=north west][inner sep=0.75pt]    {$y_{1}$};
+% Text Node
+\draw (168,234.1) node [anchor=north west][inner sep=0.75pt]    {$y_{2}$};
+% Text Node
+\draw (317.18,64.62) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize,rotate=-1.67]  {$f( y_{1} ,y_{2}) =k( 1-y_{2})$};
+% Text Node
+\draw (242,178.1) node [anchor=north west][inner sep=0.75pt]  [font=\tiny]  {$1$};
+% Text Node
+\draw (322,137.1) node [anchor=north west][inner sep=0.75pt]  [font=\tiny]  {$1$};
+% Text Node
+\draw (289.1,107.2) node [anchor=north west][inner sep=0.75pt]  [font=\tiny]  {$1$};
+% Text Node
+\draw (358.33,213.71) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 65; green, 117; blue, 5 }  ,opacity=1 ,rotate=-49.35]  {$y_{2} \geq y_{1}$};
+
+
+\end{tikzpicture}
+    \end{center}
+    Considerando también: 
+    \begin{center}
+        
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da9612381206871228] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (162,267.2) -- (160.22,32.2) ;
+\draw [shift={(160.2,30.2)}, rotate = 449.56] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9970188319434767] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (145.13,249.71) -- (353.2,250.2) ;
+\draw [shift={(355.2,250.2)}, rotate = 180.13] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6356988964469246] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (162,250) -- (328.74,93.57) ;
+\draw [shift={(330.2,92.2)}, rotate = 496.83] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4406421175171652] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (164,91) -- (330.2,92.2) ;
+%Straight Lines [id:da9550009174490209] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (330.2,92.2) -- (330.2,251.2) ;
+
+% Text Node
+\draw (138,35.1) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$y_{1}$};
+% Text Node
+\draw (357.2,253.3) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$y_{2}$};
+% Text Node
+\draw (146,83.1) node [anchor=north west][inner sep=0.75pt]    {$1$};
+% Text Node
+\draw (203.36,177.17) node [anchor=north west][inner sep=0.75pt]  [rotate=-314.84]  {$y_{1} \leq y_{2}$};
+% Text Node
+\draw (327,257.1) node [anchor=north west][inner sep=0.75pt]    {$1$};
+
+
+\end{tikzpicture}
+    \end{center}
+    Se observa que se puede plantear la siguiente doble integral: 
+    $$\int_0^1\int_0^{y_2} k(1-y_2)dy_1dy_2$$
+    \begin{align}
+        \intertext{Replanteando la doble integral:}
+        k\left[\int_0^1\int_0^{y_2} (1-y_2)dy_1dy_2\right] &= k\int_0^1[(1-y_2)y_1|_0^{y_2}]dy_2=\\
+        = k\int_0^1 [(1-y_2)y_2]dy_2 &=  k\int_0^1 [y_2-y_2^2]dy_2=\\
+        =k\left[\frac{1}{2}y_2^2-\frac{1}{3}y_2^3\right]_0^1 &= k\left[\frac{1}{2}-\frac{1}{3}\right]=k\left[\frac{3}{6}-\frac{2}{6}\right]\\
+        &=\frac{k}{6}
+        \intertext{Entonces, como sabemos que el valor de la densidad siempre debería integrar a 1, entonces:}
+        \frac{k}{6}= 1 \quad;&\quad k=6
+        \intertext{Entonces, tenemos:}
+        f\left(y_{1}, y_{2}\right)&=\left\{\begin{array}{ll}6\left(1-y_{2}\right) & \text { si } 0 \leq y_{1} \leq y_{2} \leq 1 \\ 0 & \text { si en cualquier otro caso }\end{array}\right.
+    \end{align}
+    \end{solution}
+    \item  Calcule $\mathrm{E}\left(Y_{1}\right)$
+    \begin{solution}
+    \begin{align}
+    \intertext{Considerando:}
+        E(Y_1)&=6\int_0^1\int_0^{y_2} y_1(1-y_2)dy_1dy_2\\
+        &= 6\int_0^1\int_0^{y_2}[y_1-y_1y_2]dy_1dy_2 =6\int_0^1\left[\frac{1}{2}y_1^2-\frac{1}{2}y_2y_1^2\right]_0^{y_2}dy_2=\\
+        &=6\int_0^1\left[\frac{1}{2}(y_2)^2-\frac{1}{2}y_2(y_2)^2\right]dy_2=6\int_0^1\left[\frac{1}{2}y_2^2-\frac{1}{2}y_2^3\right]dy_2=\\
+        &= 6\left[\frac{1}{6}y_2^3-\frac{1}{8}y_2^4\right]_0^1=\frac{1}{4}
+    \end{align}
+    \end{solution}
+    \item  Determine la función de densidad marginal para $Y_{2}$.
+    \begin{solution}
+    \begin{align}
+        \intertext{Sabemos que la densidad marginal se calcula con:}
+        f_2(y_2)&=\int_{-\infty}^{\infty}f(y_1,y_2)dy_1
+        \intertext{Entonces:}
+        &=6\int_0^{y_2}(1-y_2)dy_1\\
+        &=6[y_1-y_2y_2]_0^{y_1}\\
+        &= 6[y_2-y_2^2]\\
+        &= 6y_2-6y_2^2,\qquad 0\leq y_2\leq 1
+    \end{align}
+    \end{solution}
+    \item  Determine la función densidad condicional de $Y_{1}$ dado $Y_{2}=y_{2}$.
+    \begin{solution}
+    \begin{align}
+        \intertext{Por definición, sabemos que:}
+    F(y_1|y_2) = P(Y_1\leq y_1|Y_2=y_2)=\frac{f(y_1,y_2)}{f_2(y_2)}
+    \intertext{Entonces:}
+    = \frac{6(1-y_2)}{6y_2-6y_2^2}=\frac{6(1-y_2)}{6y_2(1-y_2)} =\frac{1}{y_2},\qquad 0\leq y_1\leq y_2\leq 1
+    \end{align}
+    \end{solution}
+    \item  Calcule la $P\left(\left[Y_{1} \leq 3 / 4\right] \cap\left[Y_{2} \geq 1 / 2\right]\right.$ ).
+    \begin{solution}
+    Considerando la representación gráfica del problema: 
+    \begin{center}
+        
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da9612381206871228] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (165,281.2) -- (165,61.2) ;
+\draw [shift={(165,59.2)}, rotate = 450] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9970188319434767] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (141.13,249.71) -- (551,251.19) ;
+\draw [shift={(553,251.2)}, rotate = 180.21] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Grid [id:dp9190641789427] 
+\draw  [draw opacity=0][fill={rgb, 255:red, 126; green, 211; blue, 33 }  ,fill opacity=0.21 ] (164.27,132.2) -- (543.84,132.2) -- (543.84,250.69) -- (164.27,250.69) -- cycle ; \draw   (164.27,132.2) -- (164.27,250.69)(184.27,132.2) -- (184.27,250.69)(204.27,132.2) -- (204.27,250.69)(224.27,132.2) -- (224.27,250.69)(244.27,132.2) -- (244.27,250.69)(264.27,132.2) -- (264.27,250.69)(284.27,132.2) -- (284.27,250.69)(304.27,132.2) -- (304.27,250.69)(324.27,132.2) -- (324.27,250.69)(344.27,132.2) -- (344.27,250.69)(364.27,132.2) -- (364.27,250.69)(384.27,132.2) -- (384.27,250.69)(404.27,132.2) -- (404.27,250.69)(424.27,132.2) -- (424.27,250.69)(444.27,132.2) -- (444.27,250.69)(464.27,132.2) -- (464.27,250.69)(484.27,132.2) -- (484.27,250.69)(504.27,132.2) -- (504.27,250.69)(524.27,132.2) -- (524.27,250.69) ; \draw   (164.27,132.2) -- (543.84,132.2)(164.27,152.2) -- (543.84,152.2)(164.27,172.2) -- (543.84,172.2)(164.27,192.2) -- (543.84,192.2)(164.27,212.2) -- (543.84,212.2)(164.27,232.2) -- (543.84,232.2) ; \draw    ;
+%Shape: Grid [id:dp9314834550295511] 
+\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.26 ] (545.7,33.21) -- (544.14,251.22) -- (244.93,249.08) -- (246.49,31.07) -- cycle ; \draw   (545.7,33.21) -- (246.49,31.07)(545.56,53.21) -- (246.35,51.07)(545.41,73.21) -- (246.21,71.06)(545.27,93.21) -- (246.06,91.06)(545.13,113.2) -- (245.92,111.06)(544.98,133.2) -- (245.78,131.06)(544.84,153.2) -- (245.63,151.06)(544.7,173.2) -- (245.49,171.06)(544.55,193.2) -- (245.35,191.06)(544.41,213.2) -- (245.21,211.06)(544.27,233.2) -- (245.06,231.06) ; \draw   (545.7,33.21) -- (544.14,251.22)(525.7,33.06) -- (524.14,251.08)(505.7,32.92) -- (504.14,250.94)(485.7,32.78) -- (484.14,250.8)(465.7,32.63) -- (464.14,250.65)(445.7,32.49) -- (444.14,250.51)(425.7,32.35) -- (424.14,250.37)(405.7,32.21) -- (404.14,250.22)(385.7,32.06) -- (384.14,250.08)(365.7,31.92) -- (364.14,249.94)(345.7,31.78) -- (344.14,249.79)(325.7,31.63) -- (324.14,249.65)(305.71,31.49) -- (304.15,249.51)(285.71,31.35) -- (284.15,249.36)(265.71,31.2) -- (264.15,249.22) ; \draw    ;
+%Straight Lines [id:da6356988964469246] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (165,250) -- (384.28,33.47) ;
+\draw [shift={(385.7,32.06)}, rotate = 495.36] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Grid [id:dp04992098739447415] 
+\draw  [draw opacity=0][fill={rgb, 255:red, 144; green, 19; blue, 254 }  ,fill opacity=1 ] (244.27,172.2) -- (323.7,172.2) -- (323.7,250.2) -- (244.27,250.2) -- cycle ; \draw   (244.27,172.2) -- (244.27,250.2)(264.27,172.2) -- (264.27,250.2)(284.27,172.2) -- (284.27,250.2)(304.27,172.2) -- (304.27,250.2) ; \draw   (244.27,172.2) -- (323.7,172.2)(244.27,192.2) -- (323.7,192.2)(244.27,212.2) -- (323.7,212.2)(244.27,232.2) -- (323.7,232.2) ; \draw    ;
+%Shape: Right Triangle [id:dp2525401575817009] 
+\draw  [fill={rgb, 255:red, 144; green, 19; blue, 254 }  ,fill opacity=1 ] (284.27,132.2) -- (244.78,170.84) -- (284.27,170.84) -- cycle ;
+%Shape: Grid [id:dp8889693844997051] 
+\draw  [draw opacity=0][fill={rgb, 255:red, 144; green, 19; blue, 254 }  ,fill opacity=1 ] (284.27,131.68) -- (324.28,131.68) -- (324.28,171.54) -- (284.27,171.54) -- cycle ; \draw   (284.27,131.68) -- (284.27,171.54)(304.27,131.68) -- (304.27,171.54)(324.27,131.68) -- (324.27,171.54) ; \draw   (284.27,131.68) -- (324.28,131.68)(284.27,151.68) -- (324.28,151.68) ; \draw    ;
+%Shape: Right Triangle [id:dp9462251880715149] 
+\draw  [fill={rgb, 255:red, 144; green, 19; blue, 254 }  ,fill opacity=0.15 ] (385.7,32.06) -- (165,250) -- (385.7,250) -- cycle ;
+
+% Text Node
+\draw (122,118.1) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$y_{1} \leq \frac{3}{4}$};
+% Text Node
+\draw (235,258.5) node [anchor=north west][inner sep=0.75pt]  [font=\tiny]  {$y_{2} \geq \frac{1}{2}$};
+% Text Node
+\draw (149,79.1) node [anchor=north west][inner sep=0.75pt]    {$1$};
+% Text Node
+\draw (193.24,191.75) node [anchor=north west][inner sep=0.75pt]  [rotate=-311.26]  {$y_{1} \leq y_{2}$};
+% Text Node
+\draw (318,257.1) node [anchor=north west][inner sep=0.75pt]    {$1$};
+
+
+\end{tikzpicture}
+    \end{center}
+    \begin{align}
+        \intertext{Entonces, se plantearon dos integrales dobles:}
+        6\int_{1/2}^{1}\int_{0}^{1/2}(1-y_2)dy_1dy_2&+ 6\int_{1/2}^{3/4}\int_{y_1}^{1}(1-y_2)dy_2dy_1
+    \intertext{Para la primera integral:}
+        6\int_{1/2}^{1}\int_{0}^{1/2}(1-y_2)dy_1dy_2 &=   6\int_{1/2}^{1}\left[y_1-y_2y_1\right]_0^{1/2}dy_2=\\
+        6\int_{1/2}^{1}\left[\left(\frac{1}{2}\right)-y_2\left(\frac{1}{2}\right)\right]dy_2 &= 3\int_{1/2}^{1}(1-y_2)dy_2=\\
+        3\left[y_2-\frac{1}{2}y_2^2\right]_{1/2}^1&=3\left[\left(1-\frac{1}{2}(1)^2\right)-\left(\left(\frac{1}{2}\right)-\frac{1}{2}\left(\frac{1}{2}\right)^2\right)\right]\\
+        &=\frac{3}{8}
+        \intertext{Para la segunda doble integral:}
+        6\int_{1/2}^{3/4}\int_{y_1}^{1}(1-y_2)dy_2dy_1 &= 6\int_{1/2}^{3/4}\left[y_2-\frac{1}{2}y_2^2\right]_{y_1}^{1}dy_1=\\
+        =6\int_{1/2}^{3/4}\left[((1)-\frac{1}{2}(1)^2)-((y_1)-\frac{1}{2}(y_1)^2)\right]dy_1&=  6\int_{1/2}^{3/4}\left[(\frac{1}{2})-(y_1)+\frac{1}{2}y_1^2\right]dy_1=\\
+        =6\left[\frac{1}{2}y_1-\frac{1}{2}y_1^2+\frac{1}{6}y_1^3\right]_{1/2}^{3/4} &= 6\left[\frac{21}{128}-\frac{7}{48}\right] =\frac{7}{64}
+        \intertext{Por lo cual, nos da como resultado:}
+        \frac{3}{8}+\frac{7}{64}&=\frac{31}{64} 
+    \end{align}
+    \end{solution}
+    
+    \item  Determine $E\left(Y_{1} \mid Y_{2}=y_{2}\right)$.
+    \begin{solution}
+    \begin{align}
+        \intertext{Considerando la definición:}
+        E[g(Y)|Y_2=y_2] &=\int_{-\infty}^{\infty} g(y_1)f(y_1|y_2)dy_1
+        \intertext{Sabemos, por el ejercicio de la densidad merginal que:}
+        f(y_1|y_2)&=\frac{1}{y_2}
+        \intertext{Eso quiere decir, que podemos plantear la ecuación así:}
+        \int_0^{y_2}y_1\frac{1}{y_2}dy_1=\frac{1}{y_2}\left[ \frac{1}{2}y_1^2\right]_0^{y_2} &=\frac{1}{2}y_2
+    \end{align}
+    \end{solution}
+\end{enumerate}
+(Valor 37.5 puntos).
+%------------------------------------------
+\section{Problema} 
+
+ a) Demuestre que $\forall p \in \mathbb{N} \backslash\{0,1\},\left(x_{1}+x_{2}+\ldots+x_{p}\right)^{2}=\sum_{i=1}^{p} x_{i}^{2}+2 \sum \sum_{1 \leq i<j \leq p} x_{i} x_{j}$
+    
+    \begin{solution}
+    \begin{align}
+        \left(x_{1}+x_{2}+\ldots+x_{p}\right)^{2}=\left(\sum_{i=1}^p x_i \right)^2 &=
+        \intertext{Entonces, asumamos una nueva variable $j$, para fines ilustrativos: }
+        &= \left(\sum_{i=1}^p x_i \right)\left(\sum_{j=1}^p x_j \right)\\
+&= \sum_{i=1}^p \sum_{j=1}^p a_ia_j
+\intertext{Entonces, se puede asumir lo siguiente, siempre y cuando $m\neq n$ (veáse a mayor detalle en la demostración del problema 2 - inciso 3):}
+&= \sum_{i=1}^p a_i^2 + \sum_{i=1}^p \sum_{j=1}^p a_ia_j
+\intertext{Haciendo unas modificaciones al segundo término:}
+\sum_{i=1}^p \sum_{j=1\atop j\ne i}^p a_ia_j &=
+\intertext{Asumiendo que $1\leq m \leq n\leq p$, entonces se estipula lo siguiente: }
+&=2 \sum_{1 \leq i<} \sum_{j \leq p} x_{i} x_{j}
+\intertext{Es decir:}
+\left(x_{1}+x_{2}+\ldots+x_{p}\right)^{2}&=\sum_{i=1}^{p} x_{i}^{2}+2 \sum_{1 \leq i<} \sum_{j \leq p} x_{i} x_{j}
+\end{align}
+    \end{solution}
+%--------------------------------------------
+Demuestre que si sean $Y_{1}, Y_{2}, \ldots, Y_{n}$ y $X_{1}, X_{2}, \ldots, X_{m}$ variables aleatorias $\operatorname{con} E\left(Y_{i}\right)=\mu_{i}$ para $\mathrm{i}=1, \ldots, \mathrm{n}$ y $E\left(X_{j}\right)=\xi_{j}$ para $\mathrm{j}=1, \ldots, \mathrm{m} .$ Se define $U_{1}=\sum_{i=1}^{n} a_{i} Y_{i}$ y $ U_{2}=\sum_{j=1}^{m} b_{j} X_{j}$
+para $a_{1}, a_{2}, \ldots, a_{n}, b_{1}, \ldots, b_{m} \in \mathbb{R}$.\newline\newline
+%--------------------------------------------
+
+Entonces, se cumple los incisos 1, 2 y 3:
+\begin{enumerate}
+\item  $E\left(U_{1}\right)=\sum_{i=1}^{n} a_{i} \mu_{i}$
+\begin{solution}
+\begin{align}
+    E(U_1) &= E\left( \sum_{i=1}^{n} a_iY_i\right)\\
+           &= \sum_{i=1}^{n} E\left(a_iY_i\right) & \text{Aplicando el teorema 5.8 del libro.}\\
+           &= \sum_{i=1}^{n}a_i E(Y_i) & \text{Aplicando el teorema 5.7 del libro.}\\
+           &= \sum_{i=1}^n a_i\mu_i
+\end{align}
+\end{solution}
+\item $V A R\left(U_{1}\right)=\sum_{i=1}^{n} a_{i}^{2} V A R\left(Y_{i}\right)+2 \sum \sum_{1 \leq i<j \leq n} a_{i} a_{j} \operatorname{COV}\left(Y_{i}, Y_{j}\right)$
+\begin{solution}
+\begin{align}
+VAR\left(U_{1}\right) &=E\left[U_{1}-E\left(U_{1}\right)\right]^{2}\text{. (Aplicando definición)}\\
+&=E\left[\sum_{i=1}^{n} a_{i} Y_{i}-\sum_{i=1}^{n} a_{i} \mu_{i}\right]^{2}\text{(Usando la demostración anterior)} \\
+&=E\left[\sum_{i=1}^{n} a_{i}\left(Y_{i}-\mu_{i}\right)\right]^{2}
+\intertext{Usando la demostración del inciso \textbf{a}:}
+&=E\left[\sum_{i=1}^{n} a_{i}^{2}\left(Y_{i}-\mu_{i}\right)^{2}+\sum_{i=1}^{n} \sum_{i=1}^{n} a_{i} a_{j}\left(Y_{i}-\mu_{i}\right)\left(Y_{j}-\mu_{j}\right)\right] \\
+&=\sum_{i=1}^{n} a_{i}^{2} E\left(Y_{i}-\mu_{i}\right)^{2}+\sum_{i=1}^{n} \sum_{i=1}^{n} a_{i} a_{j} E\left[\left(Y_{i}-\mu_{i}\right)\left(Y_{j}-\mu_{j}\right)\right] .
+\intertext{
+Entonces, por las definiciones generales de la variancia y la covarianza, tenemos lo siguiente:}
+VAR\left(U_{1}\right)&=\sum_{i=1}^{n} a_{i}^{2} VAR\left(Y_{i}\right)+\sum_{i=1}^{n} \sum_{i \neq j}^{n} a_{i} a_{j} \operatorname{Cov}\left(Y_{i}, Y_{j}\right)
+\intertext{Sabemos que es equivalente decir que $\operatorname{COV}\left(Y_{i}, Y_{j}\right)=\operatorname{COV}\left(Y_{j}, Y_{i}\right)$, entonces tenemos:}
+VAR\left(U_{1}\right)&=\sum_{i=1}^{n} a_{i}^{2} VAR\left(Y_{i}\right)+2 \sum_{1 \leq i} \sum_{<j \leq n} a_{i} a_{j} \operatorname{COV}\left(Y_{i}, Y_{j}\right)
+\end{align}
+\end{solution}
+\item $\operatorname{COV}\left(U_{1}, U_{2}\right)=\sum_{i=1}^{n} \sum_{j=1}^{m} a_{i} b_{j} \operatorname{COV}\left(Y_{i}, X_{j}\right)$
+
+\begin{solution}
+\begin{align}
+\operatorname{COV}\left(U_{1}, U_{2}\right) &=E\left\{\left[U_{1}-E\left(U_{1}\right)\right]\left[U_{2}-E\left(U_{2}\right)\right]\right\} \\
+&=E\left[\left(\sum_{i=1}^{n} a_{i} Y_{i}-\sum_{i=1}^{n} a_{i} \mu_{i}\right)\left(\sum_{j=1}^{m} b_{j} X_{j}-\sum_{j=1}^{m} b_{j} \xi_{j}\right)\right] \\
+&=E\left\{\left[\sum_{i=1}^{n} a_{i}\left(Y_{i}-\mu_{i}\right)\right]\left[\sum_{j=1}^{m} b_{j}\left(X_{j}-\xi_{j}\right)\right]\right\}\\
+&=E\left[\sum_{i=1}^{n} \sum_{j=1}^{m} a_{i} b_{j}\left(Y_{i}-\mu_{i}\right)\left(X_{j}-\xi_{j}\right)\right] \\
+&=\sum_{i=1}^{n} \sum_{j=1}^{m} a_{i} b_{j} E\left[\left(Y_{i}-\mu_{i}\right)\left(X_{j}-\xi_{j}\right)\right] \\
+&=\sum_{i=1}^{n} \sum_{j=1}^{m} a_{i} b_{j} \operatorname{COV}\left(Y_{i}, X_{j}\right)
+\end{align}
+\end{solution}
+Además,
+\item  Si las variables aleatorias $Y_{1}, Y_{2}, \ldots, Y_{n}$ son independientes, calcule $V A R\left(U_{1}\right)$.
+\begin{solution}
+\begin{align}
+    \intertext{Usando el teorema 5.11 sabemos que si existen dos variables aleatorias independientes $Y_1$ y $Y_2$, entonces $COV(Y_1,Y_2)=0$, por otra parte, por el inciso 2 sabemos: }
+    V A R\left(U_{1}\right)&=\sum_{i=1}^{n} a_{i}^{2} V A R\left(Y_{i}\right)+2 \sum_{1 \leq i<} \sum_{j \leq n} a_{i} a_{j} \operatorname{COV}\left(Y_{i}, Y_{j}\right)
+    \intertext{Entonces, es evidente observar que la varianza es:}
+    V A R\left(U_{1}\right)&=\sum_{i=1}^{n} a_{i}^{2} V A R\left(Y_{i}\right)
+\end{align}
+\end{solution}
+\item Si las variables aleatorias $Y_{1}, Y_{2}, \ldots, Y_{n}$ y $X_{1}, X_{2}, \ldots, X_{m}$ son independientes entre sí, calcule $\operatorname{COV}\left(U_{1}, U_{2}\right)$
+\begin{solution}
+\begin{align}
+    \intertext{Usando el teorema 5.11 sabemos que si existen dos variables aleatorias independientes $Y_1$ y $Y_2$, entonces $COV(Y_1,Y_2)=0$, entonces, por el inciso 3 sabemos: }
+    \operatorname{COV}\left(U_{1}, U_{2}\right)&=\sum_{i=1}^{n} \sum_{j=1}^{m} a_{i} b_{j} \operatorname{COV}\left(Y_{i}, X_{j}\right)
+    \intertext{Entonces, se observa que:}
+    \operatorname{COV}\left(U_{1}, U_{2}\right)&=0
+\end{align}
+\end{solution}
+\end{enumerate}
+(Valor 37.5 puntos).
+\section{Problema} Demuestre que si $\mathrm{Y}_{1}$ y $\mathrm{Y}_{2}$ son variables aleatorias, entonces:
+
+\begin{enumerate}
+\item  $\mathrm{E}\left(\mathrm{Y}_{1}\right)=\mathrm{E}\left[\mathrm{E}\left(\mathrm{Y}_{1} \mid \mathrm{Y}_{2}\right)\right]$
+\begin{solution}
+Tenemos 2 casos: 
+\begin{enumerate}
+\item El caso continuo: Supóngase que $Y_{1}$ y $Y_{2}$ son variables aleatorias conjuntamente continuas con una función de densidad conjunta $f\left(y_{1}, y_{2}\right)$ y densidades marginales $f_{1}\left(y_{1}\right)$ y $f_{2}\left(y_{2}\right)$. Entonces:
+\begin{align}
+E\left(Y_{1}\right) &=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} y_{1} f\left(y_{1}, y_{2}\right) d y_{1} d y_{2} \\
+&=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} y_{1} f\left(y_{1} \mid y_{2}\right) f_{2}\left(y_{2}\right) d y_{1} d y_{2} \\
+&=\int_{-\infty}^{\infty}\left\{\int_{-\infty}^{\infty} y_{1} f\left(y_{1} \mid y_{2}\right) d y_{1}\right\} f_{2}\left(y_{2}\right) d y_{2} \\
+&=\int_{-\infty}^{\infty} E\left(Y_{1} \mid Y_{2}=y_{2}\right) f_{2}\left(y_{2}\right) d y_{2}=E\left[E\left(Y_{1} \mid Y_{2}\right)\right]
+\end{align}
+\item El caso discreto: Supóngase que $Y_{1}$ y $Y_{2}$ son variables aleatorias conjuntamente discretas con una función de probabilidad $p\left(y_{1}, y_{2}\right)$ y densidades marginales $p_{1}\left(y_{1}\right)$ y $p_{2}\left(y_{2}\right)$. Entonces:
+\begin{align}
+E\left(Y_{1}\right) &=\sum_{\forall y_1} \sum_{\forall y_1} y_{1} p\left(y_{1}, y_{2}\right) \\
+&=\sum_{\forall y_1} \sum_{\forall y_1} y_{1} p\left(y_{1} \mid y_{2}\right)p_{2}\left(y_{2}\right)  \\
+&=\sum_{\forall y_1}\left\{\sum_{\forall y_1} y_{1} p\left(y_{1} \mid y_{2}\right) \right\} p_{2}\left(y_{2}\right)  \\
+&=\sum_{\forall y_1} E\left(Y_{1} \mid Y_{2}=y_{2}\right) p_{2}\left(y_{2}\right) =E\left[E\left(Y_{1} \mid Y_{2}\right)\right]
+\end{align}
+\end{enumerate}
+\end{solution}
+
+\item  $VAR\left(\mathrm{Y}_{1}\right)=\mathrm{E}\left[VAR\left(\mathrm{Y}_{1} \mid \mathrm{Y}_{2}\right)\right]+VAR\left[\mathrm{E}\left(\mathrm{Y}_{1} \mid \mathrm{Y}_{2}\right)\right]$
+
+\begin{solution}
+\begin{align}
+\intertext{Se sabe que $VAR\left(Y_{1} \mid Y_{2}\right)$ se da por:}
+VAR\left(Y_{1} \mid Y_{2}\right)&=E\left(Y_{1}^{2} \mid Y_{2}\right)-\left[E\left(Y_{1} \mid Y_{2}\right)\right]^{2}
+\intertext{y también se sabe que}
+E\left[VAR\left(Y_{1} \mid Y_{2}\right)\right]&=E\left[E\left(Y_{1}^{2} \mid Y_{2}\right)\right]-E\left\{\left[E\left(Y_{1} \mid Y_{2}\right)\right]^{2}\right\}
+\intertext{Eso quiere decir que:}
+VAR\left[E\left(Y_{1} \mid Y_{2}\right)\right]&=E\left\{\left[E\left(Y_{1} \mid Y_{2}\right)\right]^{2}\right\}-\left\{E\left[E\left(Y_{1} \mid Y_{2}\right)\right]\right\}^{2}
+\intertext{Entonces, la varianza de $Y_{1}$ se calcula con:}
+VAR\left(Y_{1}\right)=& E\left[Y_{1}^{2}\right]-\left[E\left(Y_{1}\right)\right]^{2} \\
+=& E\left\{E\left[Y_{1}^{2} \mid Y_{2}\right]\right\}-\left\{E\left[E\left(Y_{1} \mid Y_{2}\right)\right]\right\}^{2} \\
+=& E\left\{E\left[Y_{1}^{2} \mid Y_{2}\right]\right\}-E\left\{\left[E\left(Y_{1} \mid Y_{2}\right)\right]^{2}\right\}+E\left\{\left[E\left(Y_{1} \mid Y_{2}\right)\right]^{2}\right\} \\
+&-\left\{E\left[E\left(Y_{1} \mid Y_{2}\right)\right]\right\}^{2} \\
+=& E\left[VAR\left(Y_{1} \mid Y_{2}\right)\right]+VAR\left[E\left(Y_{1} \mid Y_{2}\right)\right]
+\end{align}
+\end{solution}
+\end{enumerate}
+(Valor 25 puntos).
+
+\bibliographystyle{apalike}
+\bibliography{bibs.bib}
+
+\end{document}

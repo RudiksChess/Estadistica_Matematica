@@ -1,0 +1,178 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry}
+% Unfortunately, LaTeX has a hard time interpreting German Umlaute. The following two lines and packages should help. If it doesn't work for you please let me know.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% The following two packages - multirow and booktabs - are needed to create nice looking tables.
+\usepackage{multirow} % Multirow is for tables with multiple rows within one cell.
+\usepackage{booktabs} % For even nicer tables.
+% As we usually want to include some plots (.pdf files) we need a package for that.
+\usepackage{graphicx}
+% The default setting of LaTeX is to indent new paragraphs. This is useful for articles. But not really nice for homework problem sets. The following command sets the indent to 0.
+\usepackage[spanish]{babel}
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+% Package to place figures where you want them.
+\usepackage{float}
+% The fancyhdr package let's us create nice headers.
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsthm}
+\usepackage{apalike}
+\pagestyle{fancy}
+
+\fancyhf{}\renewcommand\qedsymbol{$\blacksquare$}
+
+\lhead{\footnotesize Estadística Matemática: Proyecto 1}
+\rhead{\footnotesize Rompich, Martínez}
+\cfoot{\footnotesize \thepage}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+    \thispagestyle{empty} % This command disables the header on the first page.
+
+    \begin{tabular}{p{15.5cm}} % This is a simple tabular environment to align your text nicely
+    \begin{tabbing}
+    Universidad del Valle de Guatemala \\ 29 de enero de 2021  \\
+    Rudik Roberto Rompich   \=   - Carné: 19857\\
+    Carlos Daniel Martínez\>   - Carné: 19340\\
+ 
+    \end{tabbing}
+    Estadística Matemática - Paulo Mejía \\
+    \hline % \hline produces horizontal lines.
+    \\
+    \end{tabular} % Our tabular environment ends here.
+    \vspace*{0.3cm} % Now we want to add some vertical space in between the line and our title.
+    \begin{center} % Everything within the center environment is centered.
+    {\Large \bf  Proyecto 1} % <---- Don't forget to put in the right number
+        \vspace{2mm}
+    \end{center}
+    \vspace{0.4cm}
+    
+   Instrucciones: Elabore un documento en latex con las siguientes soluciones y cargue los archivos tex y pdf en la tarea de Canvas.\newline 
+   \newline 
+   
+\textbf{Problema 1}
+$[$Teoream de Tchebysheff$]$ Sea $\mathrm{k} \geq 1$. Demuestre que, para cualquier conjunto de $\mathrm{n}$ mediciones, la fracción incluida en el intervalo $\bar{y}-\mathrm{k\cdot s}$  a $\bar{y}+\mathrm{k\cdot s}$  es al menos $\displaystyle \left(1-\frac{1}{k^{2}}\right)$ $[$ Sugerencia: $\displaystyle\mathrm{s}^{2}=\frac{1}{n-1}\left[\sum_{i=1}^{n}\left(y_{i}-\bar{y}\right)^{2}\right] .$ En esa expresión, sustituya con $\mathrm{k} \mathrm{s}$ todas las desviaciones para las cuales $\left|y_{i}-\bar{y}\right| \geq \mathrm{k\cdot s}$ . Simplifique$]$. (Valor 4 puntos).
+
+\begin{proof}
+    Basándose en la demostración de \cite{wackerly2014mathematical}. Para una muestra de un tamaño $n,$ supongamos que $n^{\prime}$ hace referencia al número de medidas que caen afuera del intervalo $\bar{y} \pm k s,$ tal que $\frac{n-n’}{n}$ es la fracción que cae dentro del intervalo. Por otra parte, para mostrar que esta fracción es mayor o igual que $1-\frac{1}{ k^{2}}$, nótese que: 
+
+$$
+(n-1) s^{2}=\sum_{i \in A}\left(y_{i}-\bar{y}\right)^{2}+\sum_{i \in b}\left(y_{i}-\bar{y}\right)^{2}, \text { (ambas sumas deben ser positivas) }
+$$
+donde $A=\left\{i:\left|y_{i}-\bar{y}\right| \geq k s\right\}$ y $B=\left\{i:\left|y_{i}-\bar{y}\right|<k s\right\} .$ Entonces, tenemos: 
+$$\sum_{i \in A}\left(y_{i}-\bar{y}\right)^{2} \geq \sum_{i \in A} k^{2} s^{2}=n^{\prime} k^{2} s^{2},$$ como $i$ está contenida en $A,\left|y_{i}-\bar{y}\right| \geq k s$ y existen $n^{\prime}$ elementos en $A$. Lo que quiere decir que tenemos $s^{2} \geq \frac{k^{2} s^{2} n^{\prime}} {(n-1)},$ o $1 \geq \frac{k^{2} n^{\prime}}{(n-1)} \geq \frac{k^{2} n^{\prime}}{n} .$  Tal que, $\frac{1}{ k^{2}} \geq n^{\prime} / n$ o $\frac{\left(n-n^{\prime}\right)}{ n} \geq 1-\frac{1}{ k^{2}}$
+\end{proof}
+
+\textbf{Problema 2}
+$[$Media Potencial$]$ Sea $\phi(\mathrm{t})= \displaystyle \left[\frac{x_{1}^{t}+x_{2}{ }^{t}+\ldots+x_{n}^{t}}{n}\right]^{1/t}$ con $x_{i}>0$ para $\mathrm{i}=1, \ldots, \mathrm{n}$.
+
+
+\begin{enumerate}{}
+    \item Calcular $\phi(-1)$ (Media armónica)
+    
+    \[\begin{array}{rl}
+       \phi(-1) = &  \displaystyle \left[\frac{x_{1}^{-1}+x_{2}^{-1}+\ldots+x_{n}^{-1}}{n}\right]^{1/-1}\\
+       = & \displaystyle \left[\frac{x_{1}^{-1}+x_{2}^{-1}+\ldots+x_{n}^{-1}}{n}\right]^{-1}\\
+       = & \displaystyle \left[\frac{n}{x_{1}^{-1}+x_{2}^{-1}+\ldots+x_{n}^{-1}}\right]^{1}\\\\
+       = & \displaystyle \left[\frac{n}{\displaystyle \frac{1}{x_{1}} + \frac{1}{x_{2}}+\ldots+ \frac{1}{x_{n}}}\right] \\\\
+       = & \displaystyle \frac{n}{\displaystyle\sum_{i=0}^{n}\frac{1}{x_{i}}}
+    \end{array}\]
+    
+    \item Calcular $\phi(1)$ (Media aritmética)
+    
+        \[\begin{array}{rl}
+            \phi(1) = &  \displaystyle \left[\frac{x_{1}^{1}+x_{2}^{1}+\ldots+x_{n}^{1}}{n}\right]^{1/1}\\\\
+             = & \displaystyle \frac{x_{1}+x_{2}+\ldots+x_{n}}{n}\\\\  
+             = & \displaystyle\frac{\displaystyle\sum_{i=0}^{n}\frac{1}{x_{i}}}{n}
+        \end{array}\]
+    
+    \item Calcular $\phi(2)$ (Media cuadrática)
+    
+        \[\begin{array}{rl}
+            \phi(2) = &  \displaystyle \left[\frac{x_{1}^{2}+x_{2}^{2}+\ldots+x_{n}^{2}}{n}\right]^{1/2}\\\\
+             = & \sqrt{\displaystyle \frac{x_{1}^{2}+x_{2}^{2}+\ldots+x_{n}^{2}}{n}}\\\\ 
+             = & \displaystyle\sqrt{ \frac{\sum_{i=0}^{n}x_{i}^{2}}{n}}
+        \end{array}\]
+    
+    \item Calcular $\lim _{t \rightarrow 0} \phi(\mathrm{t})$ (Media geométrica)
+        \[
+        \begin{array}{rl}
+            \phi(\mathrm{t}) = &  \displaystyle \left[\frac{x_{1}^{t}+x_{2}{ }^{t}+\ldots+x_{n}^{t}}{n}\right]^{1/t} \\
+            \lim_{t\rightarrow 0} \phi(\mathrm{t}) =  & \lim_{t\rightarrow 0} \displaystyle \left[\frac{x_{1}^{t}+x_{2}{ }^{t}+\ldots+x_{n}^{t}}{n}\right]^{1/t} \\
+            \ln (\lim_{t\rightarrow 0} \phi(\mathrm{t})) = & \ln\left(\lim_{t\rightarrow 0} \displaystyle \left[\frac{x_{1}^{t}+x_{2}{ }^{t}+\ldots+x_{n}^{t}}{n}\right]^{1/t}\right) \\
+            \lim_{t\rightarrow 0} \ln (\phi(\mathrm{t})) = & \lim_{t\rightarrow 0} \displaystyle \ln\left[\frac{x_{1}^{t}+x_{2}{ }^{t}+\ldots+x_{n}^{t}}{n}\right]^{1/t}\\
+            = & \lim_{t\rightarrow 0} \displaystyle\frac{1}{t}  \displaystyle \ln\left[\frac{x_{1}^{t}+x_{2}{ }^{t}+\ldots+x_{n}^{t}}{n}\right]\\\\
+            = & \lim_{t\rightarrow 0}\displaystyle\frac{\displaystyle \ln\left[\frac{x_{1}^{t}+x_{2}{ }^{t}+\ldots+x_{n}^{t}}{n}\right]}{t}\\\\
+        \end{array}
+        \]
+        \begin{center}
+            Nótese que al evaluar a $\lim_{t\rightarrow 0}$ obtenemos una forma indeterminada $\displaystyle\frac{0}{0}$.\\
+            Aplicamos l'Hôpital.
+        \end{center}
+        \[
+        \begin{array}{rl}
+            \lim_{t\rightarrow 0} \ln (\phi(\mathrm{t})) = &\lim_{t\rightarrow 0} \displaystyle \frac{n}{x_{1}^{t}+x_{2}{ }^{t}+\ldots+x_{n}^{t}} \cdot \displaystyle\frac{1}{n}\left( x_1^t\ln{x_1} + x_2^t\ln{x_2}+\ldots +x_n^t\ln{x_n} \right)\\ \\
+             = & \displaystyle \frac{n}{x_{1}^{0}+x_{2}^{0}+\ldots+x_{n}^{0}} \cdot \displaystyle\frac{1}{n} \left(x_1^0\ln{x_1} + x_2^0\ln{x_2}+\ldots +x_n^0\ln{x_n}\right)\\ \\
+             = & \displaystyle\frac{n}{\underbrace{1+1+\ldots +1}_{n\text{ veces}}} \cdot \displaystyle\frac{1}{n}\left( 1\cdot\ln{x_1} + 1\cdot\ln{x_2}+\ldots +1\cdot\ln{x_n} \right)\\ \\
+             = & \displaystyle\frac{n}{n} \cdot \displaystyle\frac{1}{n} \left( \ln{x_1} + \ln{x_2}+\ldots +\ln{x_n} \right)\\\\
+             = & \displaystyle \frac{1}{n}\ln{(x_1\cdot x_2 \cdots x_n)}\\\\
+             = & \ln{(x_1\cdot x_2 \cdots x_n)}^{\frac{1}{n}}\\\\
+             e^{\displaystyle \lim_{ t\rightarrow 0} \ln (\phi(\mathrm{t}))}= &  e^{ \displaystyle\ln{(x_1\cdot x_2 \cdots x_n)}^{\frac{1}{n}}}\\
+             \therefore \lim_{ t\rightarrow 0} \phi(\mathrm{t}) = &  \sqrt[n]{x_1\cdot x_2 \cdots x_n}
+        \end{array}
+        \]
+    \item Demuestre que $\phi$ es una función monótona \\
+    $[$ Sugerencia: Utilizar la desigualdad de Jensen $]$
+    
+    Para la función $\phi(\mathrm{t})= \displaystyle \left[\frac{x_{1}^{t}+x_{2}{ }^{t}+\ldots+x_{n}^{t}}{n}\right]^{1/t}$ se propone la siguiente notación: 
+    $$\phi(t) = \left[\sum_{n=1}^k \frac{1}{n} x_n^t \right]^{1/t}$$
+    
+    Basándonos en la demostración general realizada por \cite{curioso}, usando la desigualdad de Jensen y estipulando el siguiente teorema:
+    Sean $(p_1,...,p_n)$ el vector asociado al peso tal que $p_k\in[0,1]$ (en donde $p_i$ se tomó en el caso particular de $\frac{1}{n}$) y $\sum_{i=1}^n p_i=1$ para $-\infty<t_1<t_2<\infty$
+    se tiene que que: $$ \left[\sum_{i=1}^n \frac{1}{n} x_i^{t_1} \right]^{1/t_1}\leq \left[\sum_{i=1}^n \frac{1}{n} x_i^{t_2} \right]^{1/t_2}$$
+  La igualdad ocurre si y solo si $x_1=...=x_n$
+    
+    \begin{proof}
+    Para obtener $0<t_1<t_2,$ por la desigualdad de Jensen para la función $x \rightarrow x^{p}$ con $p>1$
+$$\left(\sum_{i=1}^{n} \frac{1}{n} x_{i}\right)^{p} \leq \sum_{i=1}^{n} \frac{1}{n}x_{i}^{p}$$
+
+Con esta desigualdad y las sustituciones $x_{n}=x_{n}^{t_1}, p=\frac{t_2}{t_1}>1$ se tiene que
+$$
+\left(\sum_{i=1}^{n} \frac{1}{n} x_{i}\right)^{\frac{t_2}{t_1}} \leq \sum_{i=1}^{n} \frac{1}{n} x_{i}^{\frac{t_2}{t_1}}
+$$
+Así consideramos la $t_2$-ésima raiz da la desiqualdad deseada en este caso. Por otra parte, la convexidad estricta de $x \rightarrow x^{p}$ para $p>1$ asegura que la igualdad se cumple si sólo sí $x_{1}=\ldots=x_{n}$
+
+Para $t_1<t_2<0,$ tenemos $0<t_2<-t_1,$ a continuación se tiene
+$$
+\begin{aligned}
+\left(\sum_{i=1}^{n} \frac{1}{n}\left(x_{i}^{-1}\right)^{-t_2}\right)^{\frac{-1}{t_2}} & \leq\left(\sum_{i=1}^{n} \frac{1}{n}\left(x_{i}^{-1}\right)^{-t_1}\right)^{\frac{-1}{t_1}} \\
+& \leq\left(\sum_{i=1}^{n} \frac{1}{n} x_{i}^{t_1}\right)^{\frac{1}{t_1}} \\
+& \leq\left(\sum_{i=1}^{n} \frac{1}{n} x_{i}^{t_2}\right)^{\frac{1}{t_2}}
+\end{aligned}
+$$
+Para $t_1<0<t_2, y$ como $-t_1>0$ entonces
+$$
+M_{0}=\prod_{i=1}^{n} x_{i}^{\frac{1}{n}} \leq\left(\sum_{i=1}^{n} \frac{1}{n}\left(x_{i}^{-1}\right)^{-t_1}\right)^{\frac{-1}{t_1}} \Rightarrow\left(\sum_{i=1}^{n} \frac{1}{n} x_{i}^{t_1}\right)^{\frac{1}{t_1}} \leq \prod_{i=1}^{n} x_{i}^{\frac{1}{n}}
+$$
+Como $t_2>0,$ para el resto de los casos $0=t_1<t_2$, y $t_1<t_2=0,$ han sido cubiertos por
+la misma desigualdad por tanto tenemos
+$$
+\left(\sum_{i=1}^{n} \frac{1}{n} x_{i}^{t_1}\right)^{\frac{1}{t_1}} \leq\left(\sum_{i=1}^{n} \frac{1}{n} x_{i}^{t_2}\right)^{\frac{1}{t_2}}
+$$
+    \end{proof}
+\begin{center}
+    $\therefore \phi$ es una función monótona creciente.
+\end{center}
+\end{enumerate}
+
+\bibliographystyle{apalike}
+\bibliography{sample.bib}
+
+\end{document}
