@@ -1,0 +1,88 @@
+\section{Problema 3}
+Sea $Y_{1}, Y_{2}, \ldots, Y_{n}$ una muestra aleatoria de tamaño $n$ de una población con distribución uniforme en el intervalo $(0, \theta) .$ Sean $Y_{(n)}=\max\left(Y_{1}, Y_{2}, \ldots, Y_{n}\right)$ y $U=\frac{1}{\theta} Y_{(n)}$.
+\begin{enumerate}
+\item a) Encuentre la función de distribución acumulada $F_{U}(u)$.
+\begin{tcolorbox}[colback=gray!15,colframe=purple!10!purple,title=Sección 6.7 - Estadísticos de Orden (Order Statistics)]
+   Considerando las variables ordenadas aleatorias $Y_1,Y_2,...,Y_n$ donde $Y_{(1)}\leq Y_{(2)}\leq\cdots\leq Y_{(n)}$. La notación propuesta por el libro: 
+   $$Y_{(1)}=\min (Y_1,Y_2,\cdots, Y_n)$$
+   $$Y_{(n)}=\max (Y_1,Y_2,\cdots, Y_n)$$
+   \textbf{Resumiendo}
+   \begin{enumerate}
+       \item $g_{(n)}(y)$ denota la función densidad de $Y_{(n)}$, entonces:
+   $$g_{(n)}(y)=n\left[F(y)\right]^{n-1}f(y)$$
+        \item La función distribución de $Y_{(n)}$ es dado por: 
+        $$F_{Y_{(n)}}=P(Y_{(n)}\leq y)=P(Y_1\leq y)P(Y_2\leq y)\cdots P(Y_n\leq y)=[F(y)]^n$$
+   \end{enumerate}
+    \end{tcolorbox}
+\begin{tcolorbox}[colback=gray!15,colframe=blue!10!blue,title=Definición 4.6 - Distribución Uniforme-Densidad]
+$$f(y)= \begin{cases}\frac{1}{\theta_2-\theta_1}, & \theta_1\leq y\leq \theta_2\\ 0, &\text{ cualquier otro}\end{cases}$$
+    \end{tcolorbox}
+    
+
+\begin{solution}
+La función densidad de la distribución uniforme en el intervalo $(0,\theta)$ es: 
+$$f(y)= \begin{cases}\frac{1}{\theta}, & 0\leq y\leq \theta\\ 0, &\text{ cualquier otro}\end{cases}$$
+Es decir que integrando la función densidad tenemos la función distribución: 
+$$F(y)= \begin{cases}\frac{y}{\theta}, & 0\leq y\leq \theta\\ 0, &\text{ cualquier otro}\end{cases}$$
+Comenzamos proponiendo el enunciado de la \textbf{Sección 6.7} que dice que:
+\begin{align*}
+    F_{Y_{(n)}}(y) & = [F(y)]^n\\
+                &= \left[\frac{y}{\theta}\right]^n, \quad 0\leq y\leq \theta 
+\end{align*}
+Ahora, por otra parte, calculando la función distribución de $U$, tenemos (usando la definción usual): 
+\begin{align*}
+    F_U(u) &= P(U\leq u)\\
+           &= P\left(\frac{Y_{(n)}}{\theta}\leq u\right)\\
+           &= P\left(Y_{(n)}\leq \theta u\right)\\
+           &= F_{Y_{(n)}}(\theta u) 
+\end{align*}
+en donde es trivial ver (analizando sus casos) que: 
+$$F_U(u)=\begin{cases}0, & \theta u\leq0\\
+\left(\frac{\theta u}{\theta}\right)^n, & 0\leq \theta u\leq \theta\\
+1, & \theta u \geq 1
+\end{cases}$$
+
+Aquí, haremos una suposición para un mejor manejo del problema, como en el \textbf{Ejemplo 8,5} del libro de texto, en donde se puede asumir que $U$ es uniformemente distribuido sobre $[0,1]$. Por lo tanto: 
+
+$$F_U(u)=\begin{cases}0, &  u\leq0\\
+\left(u\right)^n, & 0\leq u\leq 1\\
+1, &  u \geq 1
+\end{cases}$$
+    
+    \end{solution}
+\item b) Demuestre que $\frac{1}{\theta} Y_{(n)}$ es una cantidad pivote.
+\begin{tcolorbox}[colback=gray!15,colframe=blue!10!blue,title=Sección 8.5-Intervalos de confianza - Método del Pivote]
+El método depende de encontrar una cantidad pivote que posee dos características: 
+\begin{enumerate}
+    \item Es una función de las medidas de la muestra y el parámetro desconocido $\theta$, donde $\theta$ es la única cantidad desconocida. 
+    \item Su función distribución no depende sobre el parámetro $\theta$.
+\end{enumerate}
+    \end{tcolorbox}
+\begin{solution}
+   Entonces, nos están pidiendo (asumiendo $h$ como el intervalo de confianza al que debemos llegar): 
+   \begin{align*}
+       P(U\leq a) &=  P\left(\frac{Y_{(n)}}{\theta}\leq a\right)\\
+       &= F_U(a)\\
+       &=h
+   \end{align*}
+   Entonces $a^n=h$, tal que $a=(h)^{1/n}$. Por lo tanto, $U=\frac{Y_{(n)}}{\theta}$ es una cantidad pivote; ya que es independiente. 
+   
+    \end{solution}
+\item c) Use la cantidad de pivote del inciso b) para hallar un límite de confianza inferior de $95 \%$ para $\theta\left(\mathrm{P}\left(\hat{\theta}_{L} \leq \theta\right)=1-\alpha\right)$
+\begin{solution}
+    Usando el inciso anterior, en donde, $h=0.95$. Tenemos que $a=(0.95)^{1/n}$. Por lo tanto, podemos asumir lo siguiente:
+    
+    $$
+\begin{aligned}
+0.95 &=P\left(U \leq 0.95^{\frac{1}{n}}\right) \\
+&=P\left(\frac{Y_{(n)}}{\theta} \leq 0.95^{\frac{1}{n}}\right) \\
+&=P\left(\theta \geq \frac{Y_{(n)}}{0.95^{\frac{1}{n}}}\right)
+\end{aligned}
+$$
+Concluimos que el límite de confianza de  $95 \%$ para $\theta$ está definido como:
+$$
+\theta \in\left\lfloor\frac{Y_{(n)}}{0.95^{\frac{1}{n}}}, \infty\right)
+$$
+    \end{solution}
+\end{enumerate}
+(Valor 25 puntos).

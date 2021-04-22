@@ -1,0 +1,122 @@
+\section{Problema 1}
+Sea $Y_{1}, Y_{2}, \ldots, Y_{n}$ una muestra aleatoria de tamaño $\mathrm{n}$ de una población cuya densidad está dada por
+$$
+f(y)=\left\{\begin{array}{ll}
+3 \beta^{3} y^{-4} & , \quad \beta \leq y \\
+0 & , \text { en cualquier otro caso }
+\end{array}\right.
+$$
+donde $\beta>0$ es un valor fijo desconocido. Considérese el estimador $\hat{\beta}=\min \left(Y_{1}, Y_{2}, \ldots, Y_{n}\right)$
+\begin{enumerate}
+    \item a) Demuestre que $\hat{\beta}$ es un estimador sesgado de $\beta$.
+    \begin{tcolorbox}[colback=gray!15,colframe=blue!1!blue,title=Definición 8.2]
+    Sea $\hat{\theta}$ un estimador fijo para un parámetro $\theta$. Entonces $\hat{\theta}$ es un estimador insesgado si $E(\hat{\theta})=\theta$. Si $E(\hat{\theta})\neq \theta$, $\hat{\theta}$ es sesgado.
+    \end{tcolorbox}
+    \begin{tcolorbox}[colback=gray!15,colframe=purple!10!purple,title=Sección 6.7 - Estadísticos de Orden (Order Statistics)]
+   Considerando las variables ordenadas aleatorias $Y_1,Y_2,...,Y_n$ donde $Y_{(1)}\leq Y_{(2)}\leq\cdots\leq Y_{(n)}$. La notación propuesta por el libro: 
+   $$Y_{(1)}=\min (Y_1,Y_2,\cdots, Y_n)$$
+   $$Y_{(n)}=\max (Y_1,Y_2,\cdots, Y_n)$$
+   \textbf{Resumiendo}, $g_{(1)}(y)$ denota la función densidad de $Y_{(1)}$, entonces:
+   $$g_{(1)}(y)=n\left[1-F(y)\right]^{n-1}f(y)$$
+    \end{tcolorbox}
+    \begin{proof}
+    Se considerará el problema \textbf{8,15} del libro de texto, en donde se indica que esta es una de las distribuciones de \textit{Pareto}. Se considera su función de distribución de esta distribución de \textit{Pareto}: 
+    
+    $$F(y)=\begin{cases}0,& y<\beta\\
+    1-\left(\frac{\beta}{y}\right)^\alpha, & y\geq \beta \end{cases}$$
+    
+    Del cual su función densidad (luego de derivar) es: 
+    $$f(y)=\begin{cases}0,& y<\beta\\
+    \alpha \beta ^\alpha y^{-(\alpha +1)}, & y\geq \beta \end{cases}$$
+    
+    Ahora bien, por la hipótesis del problema identificamos que tenemos un caso específico de la función densidad de la distribución de \textit{Pareto}; en el cual $\alpha = 3$. Por otra parte, sabemos del \textbf{Cuadro de Estadísticos de Orden} que la función densidad de $Y_{(1)}=\min(Y_1,Y_2,\cdots, Y_n)$ es:
+    
+    \begin{align}
+    \begin{split}
+        g_{(1)}(y)&=n\left[1-F(y)\right]^{n-1}f(y) \\ 
+                  &=n\left[1-\left( 1-\left(\frac{\beta}{y}\right)^3 \right)\right]^{n-1} 3 \beta ^3 y^{-(3+1)}\\
+                  &= n\left[\beta^{3(n-1)}y^{-3(n-1)}\right]3 \beta ^3 y^{-(4)}\\
+                  &= 3n\beta^{3n}y^{-(3n+1)}, \qquad y\geq \beta 
+    \end{split}
+    \end{align} 
+    
+    \linea 
+    
+    Ahora procedemos a encontrar el valor esperado de $Y_{(1)}$ (considerando $g_{(1)}(y)=f_{(1)}(y)$) por el procedimiento usual:
+    
+    \begin{align*}
+        E(Y_{(1)}) &= \int_{\infty}^{\infty} y f_{(1)}(y) \ d y\\
+                   &= \int_{\beta}^{\infty} y 3n\beta^{3n}y^{-(3n+1)} \ dy\\
+                   &= 3n\beta^{3n}\lim_{h\to \infty}\int_{\beta}^{h} y^{-3n} \ dy\\
+                   &= 3n\beta^{3n}\lim_{h\to \infty}\left[\frac{y^{-3n+1}}{-3n+1}\right]_\beta^h\\
+                   &= 3n\beta^{3n}\left[-\frac{\beta^{-3n+1}}{-3n+1}\right]\\
+                   &= \left(\frac{3n}{3n-1}\right)\beta
+    \end{align*}
+    
+    \linea 
+    
+    Ahora, volvemos a la expresión original $Y_{(1)}=\hat{\beta}$. Usando el \textbf{Cuadro de la Definición 8.2}, concluimos que $E(\hat{\beta})\neq 0$. Por lo tanto es un estimador sesgado. 
+    \end{proof}.
+\item b) Determine un múltiplo de $\hat{\beta}$ que constituya un estimador insesgado.
+\begin{solution}
+    Es decir, que nos están preguntando encontrar $E(\hat{\beta})=\beta $. Por el inciso anterior tenemos que:
+    $$E(\hat{\beta})= \left(\frac{3n}{3n-1}\right)\beta$$
+    Entonces, despejando $\beta$: 
+    $$\left(\frac{3n-1}{3n}\right)E(\hat{\beta})= \beta$$
+    $$E\left(\left(\frac{3n-1}{3n}\right)\hat{\beta}\right)= \beta$$
+    Es decir, que el múltiplo que constituye un estimador insesgado es: 
+    $$\left(\frac{3n-1}{3n}\right)\hat{\beta} = \left(\frac{3n-1}{3n}\right)Y_{(1)}$$
+    \end{solution}
+\item c) Encuentre el sesgo de $\hat{\beta}, \mathrm{B}(\hat{\beta})$ (recuerde que es el estimador original).
+\begin{tcolorbox}[colback=gray!15,colframe=blue!1!blue,title=Definición 8.3]
+    El sesgo de un estimador fijo $\hat{\theta}$ está dado por $B(\hat{\theta})=E(\hat{\theta})-\theta$.
+    \end{tcolorbox}
+\begin{solution}
+    Ahora, considerando la \textbf{Definición 8.3} y el inciso \textbf{a}, tenemos: 
+    \begin{align*}
+        B(\hat{\beta})&=E(\hat{\beta})-\beta\\
+                       &= \left(\frac{3n}{3n-1}\right)\beta - \beta \\
+                       &= \left(\frac{1}{3n-1}\right)
+    \end{align*}
+    \end{solution}
+\item d) Encuentre $\operatorname{MSE}(\hat{\beta})$ (recuerde que es el estimador original).
+\begin{tcolorbox}[colback=gray!15,colframe=blue!1!blue,title=Definición 8.4]
+    El error cuadrado medio de un estimador fijo $\hat{\theta}$ es: 
+    $$MSE(\hat{\theta})=E[(\hat{\theta}-\theta)^2]$$
+    \end{tcolorbox}
+\begin{solution}
+Considerando la \textbf{Definición 8.4}:
+    \begin{align*}
+        MSE(\hat{\beta})&=E[(\hat{\beta}-\beta)^2]\\
+                        &= E[\hat{\beta}^2-2\hat{\beta}\beta +\beta^2]\\
+                        &= E(\hat{\beta}^2)-2\beta E(\hat{\beta})+ E(\beta^2)\\
+                        &= E(\hat{\beta}^2)-2\beta E(\hat{\beta})+ \beta^2
+    \end{align*}
+    
+    \linea 
+    
+    Nos percatamos que $E(\hat{\beta}^2)$ no ha sido calculado, por lo que se calculará con el método del inciso \textbf{a}. 
+    \begin{align*}
+    E(\hat{\beta}^2)= E(Y_{(1)}^2) &= \int_{\infty}^{\infty} y^2 f_{(1)}(y) \ d y\\
+                   &= \int_{\beta}^{\infty} y^2 3n\beta^{3n}y^{-(3n+1)} \ dy\\
+                   &= 3n\beta^{3n}\lim_{h\to \infty}\int_{\beta}^{h} y^{-3n+1} \ dy\\
+                   &= 3n\beta^{3n}\lim_{h\to \infty}\left[\frac{y^{-3n+2}}{-3n+2}\right]_\beta^h\\
+                   &= 3n\beta^{3n}\left[-\frac{\beta^{-3n+2}}{-3n+2}\right]\\
+                   &= \left(\frac{3n}{3n-2}\right)\beta^2
+    \end{align*}
+    
+    \linea 
+    
+    Entonces, ahora haciendo una substitución:
+    
+    \begin{align*}
+        MSE(\hat{\beta})&=E(\hat{\beta}^2)-2\beta E(\hat{\beta})+\beta^2\\
+                        &= \left(\frac{3n}{3n-2}\right)\beta^2 -2\beta^2\left(\frac{3n}{3n-1}\right) +\beta^2\\
+                        &= \left(\frac{3n}{3n-2}\right)\beta^2 -\left(\frac{3n}{3n-1}\right)\beta^2\\
+                        &= \left(\frac{3n}{3n-2}-\frac{3n}{3n-1}\right)\beta^2\\
+                        &= \left(\frac{2}{(3n-1)(3n-2)}\right)\beta^2
+    \end{align*}
+    
+    \end{solution}
+\end{enumerate}
+(Valor 25 puntos).
