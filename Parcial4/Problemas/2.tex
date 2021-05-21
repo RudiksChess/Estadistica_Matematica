@@ -1,0 +1,18 @@
+\section{Problema 2}
+
+
+Los estimadores de máxima verosimilitud tienen propiedades interesantes cuando se trabaja con muestras grandes. Suponga que $t(\theta)$ es una función derivable en $\theta$. Por la propiedad de invarianza, se tiene que si $\hat{\theta}$ es el MLE de $\theta$, entonces el MLE de $t(\theta)$ está dada por $t(\hat{\theta}) .$ En algunas condiciones de regularidad que se cumplen para las distribuciones que se consideren, $t(\hat{\theta})$ es un estimador consistente para $t(\theta) .$ Además, para tamaño de muestras grandes,
+$$
+Z=\frac{t(\hat{\theta})-t(\theta)}{\sqrt{\left[\frac{\partial t(\theta)}{\partial \theta}\right]^{2} \Big/ n E\left[-\frac{\partial^{2} \ln [f(Y \mid \theta)]}{\partial \theta^{2}}\right]}}
+$$
+tiene aproximandamente una distribución normal estándar, donde $f(Y \mid \theta)$ es la función densidad correspondiente a la distribución continua de interés, evaluada en el valor aleatorio Y. En el caso discreto, el resultado análogo se cumple con la función de probabilidad evaluada en el valor aleatorio $\mathrm{Y}$, $p(Y \mid \theta)$, se sustituye por la densidad $f(Y \mid \theta)$. En el caso particular, para una variable aleatoria con distribución de Bernoulli, $p(y \mid p)=$ $p^{y}(1-p)^{1-y}$, donde $\mathrm{y}=0,1 .$ Si $Y_{1}, \ldots, Y_{n}$ es una muestra aleatoria de tamaño $\mathrm{n}$ de dicha distribución.
+
+\begin{enumerate}
+	\item a) Encuentre el MLE para el parámetro p.
+	\begin{solution}
+		content...
+	\end{solution}
+	\item b) Encuentre el MLE para la expresión p(1-p).
+	\item c) Construya un intervalo de confianza de $100(1-\alpha) \%$ para $\mathrm{p}(1-\mathrm{p})$, la varianza de dicha distribución (suponga una muestra grande).
+\end{enumerate}
+ (Valor 25 puntos).

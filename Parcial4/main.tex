@@ -1,0 +1,83 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow} 
+\usepackage{booktabs} 
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{etoolbox}
+\usepackage{apalike}
+\usepackage{minibox}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\newcommand{\linea}{\noindent\rule{\textwidth}{1pt}}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\square$}\begin{proof}[\textcolor{blue}{Solución}]}
+  {\end{proof}}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\lhead{\footnotesize Estadística Matemática}
+\rhead{\footnotesize  Rudik Roberto Rompich}
+\cfoot{\footnotesize \thepage}
+
+\begin{document}
+    \thispagestyle{empty} 
+    \begin{tabular}{p{15.5cm}}
+    \begin{tabbing}
+    \textbf{Universidad del Valle de Guatemala} \\
+    Departamento de Matemática\\
+    Licenciatura en Matemática Aplicada\\\\
+   \textbf{Estudiante:} Rudik Roberto Rompich\\
+   \textbf{E-mail:} \textcolor{blue}{ \href{mailto:rom19857@uvg.edu.gt}{rom19857@uvg.edu.gt}}\\
+   \textbf{Carné:} 19857
+    \end{tabbing}
+    \begin{center}
+        MM2036 - Estadística Matemática - Catedrático: Paulo Mejía\\
+        \today
+    \end{center}\\
+    \hline
+    \\
+    \end{tabular} 
+    \vspace*{0.3cm} 
+    \begin{center} 
+    {\Large \bf Parcial 4
+} 
+        \vspace{2mm}
+    \end{center}
+    \vspace{0.4cm}
+%---------------------------
+%\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=A nice heading]
+%\end{tcolorbox}
+
+%\fbox{lol}
+%---------------------------
+
+
+%-----------------------------
+Instrucciones: Resuelva los siguientes problema. Favor hacer la solución en latex y cargar el archivo latex y pdf en la tarea de Canvas. Para la resolución de los problemas, se utilizará el libro de \cite{wackerly2014mathematical}. 
+\input{Problemas/1}
+\input{Problemas/2}
+\input{Problemas/3}
+\input{Problemas/4}
+%---------------------------
+\bibliographystyle{apalike}
+\bibliography{sample.bib}
+
+\end{document}
