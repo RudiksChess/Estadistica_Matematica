@@ -31,25 +31,35 @@ para $\mathrm{i}=1, \ldots, \mathrm{n}$
 	\item b) Demuestre que $\widehat{p_{n}}$ es un estimador consistente de $p$.
 	\begin{solution} 
 		Procedemos a calcular la varianza del estimador, es decir: 
-		$$VAR(\hat{p}_n)=\frac{pq}{n}. \quad \text{ (Deducción en el ejercicio 5.28).}$$
+		$$VAR(\hat{p}_n)=\frac{pq}{n},\quad q=(1-p). \quad \text{ (Deducción en el ejercicio 5.28).}$$
 		$\implies$ Tomamos como referencia el teorema 9.1:
 		\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Teorema 9.1]
 			An unbiased estimator $\hat{\theta}_n$ for $\theta$ is a consistent estimator of $\theta$ if
 			$$\lim_{n\to\infty}VAR(\hat{\theta}_n)=0.$$
 		\end{tcolorbox}
-	$$\implies \lim_{n\to\infty}VAR(\hat{p}_n)=\lim_{n\to\infty}VAR\left(\frac{pq}{n}\right)=VAR\left(\frac{pq}{0}\right)=0.$$
+	$$\implies \lim_{n\to\infty}VAR(\hat{p}_n)=\lim_{n\to\infty}VAR\left(\frac{pq}{n}\right)=VAR\left(0\right)=0.$$
 	\end{solution}
 	\item c) Cuando $\mathrm{n}$ es grande, demuestre que la distribución de $\frac{\widehat{p_{n}}-p}{\sqrt{p(1-p) / n}}$ converge a una distribución normal estándar.
 	\begin{solution}
-		Considerando: \begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Teorema 9.3]
-			Suppose that $U_n$ has a distribution function that converges to a standard normal distribution function as $n \to \infty$. If $W_n$ converges in probability to 1, then the distribution function of $U_n / W_n $converges to a standard normal distribution function.
-			\end{tcolorbox}
-	\end{solution}
-	\item d) Cuando $\mathrm{n}$ es grande, demuestre que la distribución de $\frac{\widehat{p_{n}}-p}{\sqrt{p_{n}\left(1-\widehat{p_{n}}\right) / n}}$ converge a una distribución normal estándar. 
-	\begin{solution}
-		Considerando: \begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Teorema 9.3]
-			Suppose that $U_n$ has a distribution function that converges to a standard normal distribution function as $n \to \infty$. If $W_n$ converges in probability to 1, then the distribution function of $U_n / W_n $converges to a standard normal distribution function.
+		Considerando el teorema del límite central:
+		\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Teorema 7.4]
+			Let $Y_1, Y_2, . . . , Y_n$ be independent and identically distributed random variables with $E (Y_i ) = \mu$ and $V (Y_i ) = \sigma^ 2 < \infty$. Define
+			$$U_n=\frac{\sum_{i=1}^{n}Y_i-n\mu }{\sigma\sqrt{n}}=\frac{\overline{Y}-\mu}{\sigma/\sqrt{n}}.$$
+			Then, the distribution function $U_n$ converges to the standard normal distribution function as $n\to\infty$. 
 		\end{tcolorbox}
+	Dados los 2 incisos anteriores tenemos $E(Y_i)=p$ y $VAR(Y_i)=p(1-p)$. Por hipótesis, sabemos $Y=\sum_{i=1}^{n}Y_i$. Definimos: 
+	$$U_n=\frac{Y-np}{\sqrt{p(1-p)}\sqrt{n}}=\frac{\frac{Y-np}{n}}{\frac{\sqrt{p(1-p)}\sqrt{n}}{n}}=\frac{\hat{p}_n-p}{\sqrt{\frac{p(1-p)}{n}}}$$
+	Por lo tanto, la distribución converge a una distribución normal.
 	\end{solution}
+	\item d) Cuando $\mathrm{n}$ es grande, demuestre que la distribución de $\frac{\widehat{p_{n}}-p}{\sqrt{\widehat{p_{n}}\left(1-\widehat{p_{n}}\right) / n}}$ converge a una distribución normal estándar. 
+	\begin{solution}
+	Sabemos que $\hat{p}_n$ es consistente, por lo que $(1-\hat{p}_n)$ también debe ser consistente; por el inciso $b$ del teorema 9.2, entonces $\hat{p}_n(1-\hat{p}_n)$ es consiste para $p(1-p)$. 
+	$$\implies \frac{U_n}{W_n}=\frac{\hat{p}_n-p}{\sqrt{\frac{\hat{p}_n(1-\hat{p}_n)}{n}}}=\frac{\frac{\hat{p}_n-p}{\sqrt{\frac{p(1-p)}{n}}}}{\frac{\sqrt{\frac{\hat{p}_n(1-\hat{p}_n)}{n}}}{\sqrt{\frac{p(1-p)}{n}}}}=\frac{\underbrace{\frac{\hat{p}_n-p}{\sqrt{\frac{p(1-p)}{n}}}}_{\text{Inciso anterior.}}}{\underbrace{\sqrt{\frac{\hat{p}_n(1-\hat{p}_n)}{p(1-p)}}}_{\text{Su probabilidad converge a 1.}}}$$
+	Por lo tanto, $U_n$ converge a una distribución normal y la probabilidad  de $W_n$  converge a 1. Considerando: \begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Teorema 9.3]
+		Suppose that $U_n$ has a distribution function that converges to a standard normal distribution function as $n \to \infty$. If $W_n$ converges in probability to 1, then the distribution function of $U_n / W_n $converges to a standard normal distribution function.
+	\end{tcolorbox}
+
+Se concluye que la distribución $U_n/W_n$ converge a una distribución normal estándar.
+ 	\end{solution}
 \end{enumerate}
 (Valor 25 puntos)
