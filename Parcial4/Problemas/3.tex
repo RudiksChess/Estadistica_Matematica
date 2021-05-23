@@ -4,5 +4,41 @@ Suponga que $Y_{1}, Y_{2}, \ldots, Y_{n}$ es una muestra aleatoria de la distrib
 
 \begin{enumerate}
 	\item a) Encuentre el estimador del método de momentos para $\lambda$.
-	\item b) Encuentre el estimador de máxima verosimilitud (MLE) $\hat{\lambda}$ para $\lambda$. (Valor 25 puntos).
+	\begin{solution}
+		Comenzamos definiendo el estimador del método de momentos como:
+		\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Method of moments]
+			Choose as estimates those values of the parameters that are solutions of the equations $\mu'_k = m'_k$, for $k$ = 1,2,...,$t$, where $t$ is the number of parameters to be estimated. 
+			$$\mu'_k=E(Y^k)\quad \text{ and } m'_k=\frac{1}{n}\sum_{i=1}^nY_i^k. $$
+			\end{tcolorbox}
+			Sabemos por hipótesis que $\mu$=$\lambda$. $\implies$ El estimador del método de momentos  está definido como: $$\hat{\lambda}=m'_1=\frac{1}{n}\sum_{i=1}^nY_i^1=\overline{Y}.$$
+		
+			\end{solution}
+	
+	\item b) Encuentre el estimador de máxima verosimilitud (MLE) $\hat{\lambda}$ para $\lambda$. 
+	\begin{solution}
+		Comenzamos definiendo el MLE, como: 
+		\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Method of Maximum Likehood]
+			Suppose that the likelihood function depends on k parameters $\theta_1,\theta_2,...,\theta_k$. Choose as estimates those values of the parameters that maximize the likelihood $L(y_1, y_2,..., y_n |\theta_1,\theta_2,...,\theta_k)$.
+		\end{tcolorbox}
+		
+		\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Función de probabilidad de Poisson]
+			Apéndice 2 - Distribuciones discretas, se define como: 
+			$$p(y)=\frac{\lambda^ye^{-\lambda}}{y!}, \quad y=1,2,3,...$$
+		\end{tcolorbox}
+	\begin{align*}
+		\intertext{$\implies$ Usando la definición de verosimilitud:}
+		L(\lambda) &= p(y_1,y_2,\cdots, y_n | \lambda ) \\
+								&= p(y_1|\lambda)\times  p(y_2|\lambda) \times \cdots  \times p(y_n|\lambda)\\
+								&= \left\{\frac{\lambda^{y_1}e^{-\lambda}}{y_1!}\right\}\times \left\{\frac{\lambda^{y_2}e^{-\lambda}}{y_2!}\right\}\times \cdots \times \left\{\frac{\lambda^{y}e^{-\lambda}}{y!}\right\}\\
+								&= \prod_{i=1}^{n}\frac{\lambda^{y_i}e^{-\lambda}}{y_i!}=\frac{\left(\prod_{i=1}^{n}\lambda^{y_i}\right)\left(\prod_{i=1}^{n}e^{-\lambda}\right)}{\prod_{i=1}^{n}y_i!}=\frac{\left(\lambda^{\sum_{i=1}^{n}y_i}\right)\left(ne^{-\lambda}\right)}{\prod_{i=1}^{n}y_i!}\\
+		\ln\left[L(\lambda) \right]&=\ln \left[\frac{\left(\lambda^{\sum_{i=1}^{n}y_i}\right)\left(ne^{-\lambda}\right)}{\prod_{i=1}^{n}y_i!}\right]=\ln\left[\left(\lambda^{\sum_{i=1}^{n}y_i}\right)\left(ne^{-\lambda}\right)\right]-\ln\left[\prod_{i=1}^{n}y_i!\right]\\
+		&=\ln\left[\left(\lambda^{\sum_{i=1}^{n}y_i}\right)\right]+\ln\left[\left(ne^{-\lambda}\right)\right]-\ln\left[\prod_{i=1}^{n}y_i!\right]\\
+		&=\left[\sum_{i=1}^{n}y_i\right]\left[\ln(\lambda)\right]-\lambda n -\ln\left[\prod_{i=1}^{n}y_i!\right]\\
+		\frac{d	\ln\left[L(\lambda) \right] }{d\lambda}&=\frac{1}{\lambda}\left[\sum_{i=1}^{n}y_i\right]-n-0
+			\end{align*}
+		Igualamos a 0 la expresión:
+		$$\frac{1}{\hat{\lambda}}\left[\sum_{i=1}^{n}y_i\right]-n = 0\implies \hat{\lambda}=\frac{1}{n}\left[\sum_{i=1}^{n}y_i\right]=\overline{Y}$$
+	\end{solution}
 \end{enumerate}
+
+(Valor 25 puntos).
