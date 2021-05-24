@@ -2,16 +2,63 @@
 
 
 Sea $Y_{1}, Y_{2}, \ldots, Y_{n}$ una muestra aleatoria de una distribución normal con media $\mu$ y varianza $1 .$
+\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Definición 4.8 - Distribución Normal]
+	A random variable $Y$ is said to have a normal probability distribution if and only if, for $\sigma >0$ and $-\infty<\mu<\infty$, the density function of $Y$ is
+	$$f(y)=\frac{1}{\sigma\sqrt{2\pi}}e^{-(y-\mu)^2/(2\sigma^2)}, \qquad \infty<y<\infty$$
+	\end{tcolorbox}
 \begin{enumerate}
 	\item a) Demuestre que $\overline{Y}$ es un estimador suficiente para $\mu$.
 	\begin{solution}
-		content...
+		Comenzamos definiendo al estimador suficiente como:
+		\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Teorema 9.4 - Estimador suficiente]
+			Let $U$ be a statistic based on the random sample $Y_1, Y_2,..., Y_n$. Then $U$ is a sufficient statistic for the estimation of a parameter $\theta$ if and only if the likelihood $L(\theta) = L(y_1, y_2, . . . , y_n | \theta)$ can be factored into two nonnegative functions,
+			$$L(y_1,y_2,...,y_n |\theta)=g(u,\theta)\times h(y_1, y_2,..., y_n)$$
+			where $g(u,\theta)$ is a function only of $u$ and $\theta$ and $h(y_1,y_2,...,y_n)$ is not a function of $\theta$.
+		\end{tcolorbox}
+	\begin{align*}
+		L(y_1,y_2,\cdots, y_n|\mu) &= L(y_1|\mu)\times L(y_2|\mu)\times \cdots \times L(y_n|\mu)\\
+		&=
+			\frac{1}{\sigma\sqrt{2\pi}}\exp\left[{-(y_1-\mu)^2 \over (2\sigma^2)}\right]\times \frac{1}{\sigma\sqrt{2\pi}}\exp\left[{-(y_2-\mu)^2 \over (2\sigma^2)}\right]\times \cdots \times\\
+			& \times \cdots \times\frac{1}{\sigma\sqrt{2\pi}}\exp\left[{-(y_n-\mu)^2 \over (2\sigma^2)}\right]\\
+			&= \frac{1}{\sigma^n\left(\sqrt{2\pi}\right)^n}\times \exp\left[-\frac{1}{2\sigma^2}\left(\sum_{i=1}^{n}(y_i-\mu)^2\right)\right]\\
+			&= \frac{1}{\sigma^n\left(\sqrt{2\pi}\right)^n}\times \exp\left[-\frac{1}{2\sigma^2}\sum_{i=1}^{n}\left(y^2_i-2y_i\mu+\mu^2\right)\right]\\
+			&= \frac{1}{\sigma^n\left(\sqrt{2\pi}\right)^n}\times \exp\left[-\frac{1}{2\sigma^2}\left(\sum_{i=1}^{n}y^2_i-2\sum_{i=1}^{n}y_i\mu+\sum_{i=1}^{n}\mu^2\right)\right]\\
+			&= \frac{1}{\sigma^n\left(\sqrt{2\pi}\right)^n}\times \exp\left[-\frac{1}{2\sigma^2}\left(\sum_{i=1}^{n}y^2_i-2n\overline{y}\mu+n\mu^2\right)\right]
+			\intertext{Se conocía que $\sigma^2$=1, por lo cual:}
+			&= \frac{1}{\left(\sqrt{2\pi}\right)^n}\times \exp\left[-\frac{1}{2}\left(\sum_{i=1}^{n}y^2_i-2n\overline{y}\mu+n\mu^2\right)\right]\\
+			&= \frac{1}{\left(\sqrt{2\pi}\right)^n}\times \exp\left[-\frac{1}{2}\sum_{i=1}^{n}y^2_i+\frac{1}{2}2n\overline{y}\mu-\frac{1}{2}n\mu^2\right]\\
+			&= \left\{\frac{1}{\left(\sqrt{2\pi}\right)^n}\times \exp\left[-\frac{1}{2}\sum_{i=1}^{n}y^2_i\right]\right\}\times\exp\left[n\overline{y}\mu-\frac{1}{2}n\mu^2\right]\\
+			&= h(y)\times g(\overline{y},\mu)
+			\end{align*}
+		Por lo tanto, $\overline{y}$ es un estimador suficiente para $\mu$.
 	\end{solution}
 	\item b) ¿Cuál es la distribución de $\overline{Y}$ con sus parámetros? (Incluya la justificación).
+	\begin{solution}
+		Considérese el teorema 4.7:
+		\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Teorema 7.1 ]
+			Let $Y_1, Y_2, . . . , Y_n$ be a random sample of size n from a normal distribution 
+			with mean $\mu$ and variance $\sigma$. Then
+			$$\overline{Y}=\frac{1}{n}\sum_{i=1}^{n}Y_i$$
+			is normally distributed with mean $\mu_{\overline{Y}} = \mu$ and variance $\sigma^2_{\overline{Y}} = \sigma^2/n$.
+		\end{tcolorbox}
+Entonces, podemos concluir que $\overline{Y}$ tiene una distribución normal con media $\mu_{\overline{Y}} = \mu$ y varianza $\sigma^2_{\overline{Y}} = 1/n$.
+	\end{solution}
 	\item c) Encuentre la función generadora de momentos de $\overline{Y}$ (Incluya la justificación).
+	\begin{solution}
+		Vamos a tomar como referencia el cuadro 2 del apéndice 2: 
+		\begin{center}
+			\includegraphics[scale=0.5]{/Users/rudiks/Git/Estadistica_Matematica/Parcial4/Images/Screen Shot 2021-05-23 at 20.39.19.png}
+		\end{center}
+	\end{solution}
 	\item d) Calcule $E\left(\overline{Y}^{2}\right)$ y $E\left(\overline{Y}^{4}\right)$, utilizando la función generadora de momentos del inciso de
-	$\overline{\boldsymbol{Y}}$
-    \item e) Demuestre que el MUEV (estimador insesgado de varianza mínima) de $\mu^{2}$ es $\widehat{\mu^{2}}=$ $\overline{Y}^{2}-\frac{1}{n}$
-	\item f) Obtenga la $V A R\left(\widehat{\mu^{2}}\right)$, utilizando el resultado en $\mathrm{d}$ ). (Valor 25 puntos).
+	$\overline{Y}$.
+    \item e) Demuestre que el MUEV (estimador insesgado de varianza mínima) de $\mu^{2}$ es $\widehat{\mu^{2}}=$ $\overline{Y}^{2}-\frac{1}{n}$. \begin{solution}
+    	content...
+    \end{solution}
+	\item f) Obtenga la $V A R\left(\widehat{\mu^{2}}\right)$, utilizando el resultado en $\mathrm{d}$ ).
+	\begin{solution}
+		content...
+	\end{solution} 
 \end{enumerate}
+(Valor 25 puntos).
 
