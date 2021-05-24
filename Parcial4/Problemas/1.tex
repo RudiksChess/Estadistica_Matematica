@@ -47,17 +47,63 @@ Entonces, podemos concluir que $\overline{Y}$ tiene una distribución normal con
 	\begin{solution}
 		Vamos a tomar como referencia el cuadro 2 del apéndice 2: 
 		\begin{center}
-			\includegraphics[scale=0.5]{/Users/rudiks/Git/Estadistica_Matematica/Parcial4/Images/Screen Shot 2021-05-23 at 20.39.19.png}
+			\includegraphics[scale=0.4]{/Users/rudiks/Git/Estadistica_Matematica/Parcial4/Images/Screen Shot 2021-05-23 at 20.39.19.png}
 		\end{center}
+	La demostración del caso general es la siguiente: 
+	\begin{align*}
+		m_U(t) &= E(\exp(tU))\\
+					   &= \int_{-\infty}^{\infty} \exp(tU)\cdot f(U)dU\\
+		      		   &=\frac{1}{\sigma \sqrt{2 \pi}} \int_{-\infty}^{\infty} \exp \left(t U-\frac{(U-\mu)^{2}}{2 \sigma^{2}}\right) \mathrm{d} U \\
+						&=\frac{\sqrt{2} \sigma}{\sigma \sqrt{2 \pi}} \int_{-\infty}^{\infty} \exp \left((\sqrt{2} \sigma z+\mu) t-z^{2}\right) \mathrm{d} z \quad \text { sustituyendo } z=\frac{U-\mu}{\sqrt{2} \sigma} \\
+				   		&=\frac{\exp\{\mu t\}}{\sqrt{\pi}} \int_{-\infty}^{\infty} \exp \left(-\left(z^{2}-\sqrt{2} \sigma z t\right)\right) \mathrm{d} z \\
+				   		&=\frac{\exp\{\mu t\}}{\sqrt{\pi}} \int_{-\infty}^{\infty} \exp \left(-\left(z-\frac{\sqrt{2}}{2} \sigma t\right)^{2}+\frac{1}{2} \sigma^{2} t^{2}\right) \mathrm{d} z \\
+				   		&=\frac{\exp \left(\mu t+\frac{1}{2} \sigma^{2} t^{2}\right)}{\sqrt{\pi}} \int_{-\infty}^{\infty} \exp \left(-v^{2}\right) \mathrm{d} v \quad \text { sustituyendo } v=z-\frac{\sqrt{2}}{2} \sigma t \\
+				   		&=\frac{\sqrt{\pi} \exp \left(\mu t+\frac{1}{2} \sigma^{2} t^{2}\right)}{\sqrt{\pi}} \quad \\
+				       &=\exp \left(\mu t+\frac{1}{2} \sigma^{2} t^{2}\right)
+				       \intertext{Para el caso en donde $\sigma^2=1$}
+				       &=\exp \left(\mu t+\frac{1}{2}  t^{2}\right)
+	\end{align*}
 	\end{solution}
 	\item d) Calcule $E\left(\overline{Y}^{2}\right)$ y $E\left(\overline{Y}^{4}\right)$, utilizando la función generadora de momentos del inciso de
 	$\overline{Y}$.
+	\begin{solution}
+		Según la literatura:
+		\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=Valor esperado]
+			$$E(Y^n)=M^{(n)}_Y(0)=\frac{d^nM_Y(0)}{dt^n}$$
+			\end{tcolorbox}
+		Entonces: 
+		\begin{center}
+			\includegraphics[scale=0.3]{/Users/rudiks/Git/Estadistica_Matematica/Parcial4/Images/WhatsApp Image 2021-05-23 at 21.48.55.jpeg}
+		\end{center}
+		$$E(Y^2)=M^{(2)}_Y(0)=\frac{d^2M_Y(0)}{dt^2}=\mu^2+1$$
+		Entonces, tenemos $E(Y^2_i)=\mu^2+1$ por la deducción del teorema 5.12, podemos asumir que: 
+		$$E(\overline{Y}^2)=\mu^2+\frac{1}{n}.$$
+		Por otra parte,
+		\begin{center}
+			\includegraphics[scale=0.3]{/Users/rudiks/Git/Estadistica_Matematica/Parcial4/Images/WhatsApp Image 2021-05-23 at 21.48.55-2.jpeg}
+		\end{center}
+		$$E(Y^4)=M^{(4)}_Y(0)=\frac{d^4M_Y(0)}{dt^4}=\mu^4+6\mu^2+3$$
+		Entonces, tenemos $E(Y^4_i)=\mu^4+6\mu^2+3$ por la deducción del teorema 5.12, podemos asumir que: 
+		$$E(\overline{Y}^4)=\mu^4+\frac{6\mu^2}{n}+\frac{3}{n^2}.$$
+	\end{solution}
     \item e) Demuestre que el MUEV (estimador insesgado de varianza mínima) de $\mu^{2}$ es $\widehat{\mu^{2}}=$ $\overline{Y}^{2}-\frac{1}{n}$. \begin{solution}
-    	content...
+    	Sabemos que $\overline{Y}$ es suficiente para $\mu$. Además, sabemos que $\sigma$=1, por lo que $\overline{Y}$ tiene una distribución normal con media $\mu$ y varianza $1/n$.  Entonces,
+    	
+    	$$E(\overline{Y}^2)=\mu^2 +\frac{1}{n}\implies E\left(\overline{Y}^2-\frac{1}{n}\right)=\mu^2$$  
+    	
+    	
+    	 Entonces, tenemos un estimador insesgado de $\mu^2$. Ahora, tomando en cuenta el siguiente teorema:	\begin{tcolorbox}[colback=gray!15,colframe=black!1!black,title=The Rao–Blackwell Theorem]
+    		Let $\hat{\theta}$ be an unbiased estimator for $\theta$ such that
+    		$VAR(\hat{\theta}) < \infty$. If $U$ is a sufficient statistic for $\theta$, define $\hat{\theta}^*$ = $E(\hat{\theta} |U)$. Then, for
+    		all $\theta$,
+    		$$E(\hat{\theta}^*)=\theta \quad \text{ y } \quad VAR(\hat{\theta}^*)\leq VAR(\hat{\theta}).$$
+    		\end{tcolorbox}
+    	Implica que $\hat{\mu}^2=\overline{Y}^2-\frac{1}{n}$ es un MVUE de $\mu^2$. 
     \end{solution}
 	\item f) Obtenga la $V A R\left(\widehat{\mu^{2}}\right)$, utilizando el resultado en $\mathrm{d}$ ).
 	\begin{solution}
-		content...
+		$$VAR(\hat{\mu}^2)=VAR\left(\overline{Y}^2-\frac{1}{n}\right)=VAR\left(\overline{Y}^2\right)=E(\overline{Y}^4)-[E(\overline{Y}^2)]^2=$$
+		$$=\mu^4+\frac{6\mu^2}{n}+\frac{3}{n^2}-\left[\mu^2+\frac{1}{n}\right]^2=\frac{\left(2+4n\mu^2\right)}{n^2}.$$
 	\end{solution} 
 \end{enumerate}
 (Valor 25 puntos).
